@@ -20,7 +20,7 @@ class App extends Component {
 
   }
 
-<<<<<<< HEAD
+
   componentDidMount() {
     if (localStorage.getItem('token')) {
       fetch("http://localhost:3000/api/v1/current_user", {
@@ -39,39 +39,8 @@ class App extends Component {
           })
         })
     }
-
-
-
-
   }
 
-
-
-
-
-
-
-=======
-  componentDidMount(){
-  if(localStorage.getItem('token')){
-    fetch("http://localhost:3000/api/v1/current_user", {
-      headers: {
-        'Content-Type': 'application/json',
-        'Accept': 'application/json',
-        'Authorization': localStorage.getItem('token')
-      }
-    })
-      .then( res => res.json())
-      .then(userJSON => {
-        this.setState({
-          user: userJSON.user
-        }, () => {
-          this.props.history.push('/rappers')
-        })
-      })
-    }
-  }
->>>>>>> 51c0d554238d454e487e78d6441511abedc6768a
 
   signupSubmitHandler = userInfo => {
     fetch("http://localhost:3000/api/v1/users", {
@@ -94,7 +63,7 @@ class App extends Component {
           this.props.history.push("/rappers");
         });
       });
-    };
+  };
   loginSubmitHandler = userInfo => {
     fetch("http://localhost:3000/api/v1/login", {
         method: "POST",
@@ -115,7 +84,7 @@ class App extends Component {
           () => this.props.history.push("/rappers")
         )
       });
-    };
+  };
 
   handleLogout = () => {
     this.setState({
