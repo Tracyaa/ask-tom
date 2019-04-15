@@ -2,6 +2,11 @@ import React, { Component } from 'react';
 import IdeaList from '../containers/IdeaList'
 import Filter from '../components/Filter'
 import IdeaCard from '../components/IdeaCard'
+import SurveyForm from '../components/SurveyForm'
+import Navbar from '../components/Navbar';
+import Signup from '../components/Signup';
+import Login from '../components/Login';
+import { Route, Switch, Link, withRouter } from 'react-router'
 
 class Home extends Component {
 
@@ -25,17 +30,21 @@ class Home extends Component {
   render() {
     return (
       <div className="ask-tom-home">
+
+
+
+        <Route exact path="/survey" component={SurveyForm}/>
+        <Route exact path="/signup" component={Signup}/>
+        <Route exact path="/login" component={Login}/>
         <h1>Ask Tom Home Page</h1>
         <Filter changeFilterTerm={this.changeFilterTerm} clickGenerateIdea={this.clickGenerateIdea}/>
         <IdeaCard newIdea={this.state.newIdea}/>
         <IdeaList filterTerm={this.state.filterTerm}/>
-        <header className="ask-tom-header">
-          <img src={"https://cdn-image.travelandleisure.com/sites/default/files/styles/1600x1000/public/1501602372/alpaca-animal-farm-zoo-ALPACAS0817.jpg?itok=VZTNhadl"} alt="logo" />
 
-        </header>
       </div>
     );
   }
 }
 
-export default Home;
+export default withRouter (Home);
+// export default withRouter{ Home };
