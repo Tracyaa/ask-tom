@@ -11,6 +11,7 @@ class Navbar extends Component {
           <Link to="/survey">Survey</Link> 	&nbsp;
           <Link to="/signup">Signup</Link> 	&nbsp;
           <Link to="/login">Login</Link> 	&nbsp;
+          <p onClick={(e) => this.props.handleLogout()}>Logout</p>
         </ul>
       </nav>
     );

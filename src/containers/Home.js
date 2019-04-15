@@ -1,6 +1,4 @@
-import React, {
-  Component
-} from 'react';
+import React, {Component} from 'react';
 import IdeaList from '../containers/IdeaList'
 import Filter from '../components/Filter'
 import IdeaCard from '../components/IdeaCard'
@@ -36,13 +34,11 @@ class Home extends Component {
   }
 
   setToolsState = (tools) => {
-
     console.log(tools)
     this.setState({
       tools
     }, () => console.log(this.state.tools))
   }
-
 
   changeFilterTerm = (mod) => {
     adapter.getTool()
@@ -51,10 +47,11 @@ class Home extends Component {
         this.setState({
           tools: filteredTools
         }, () => console.log(this.state.tools))
-
-
       })
   }
+
+
+
 
   clickGenerateIdea = () => {
 
@@ -87,17 +84,18 @@ class Home extends Component {
 
     this.setState({
       newIdea
-    }, () => console.log(this.state.newIdea))
+    })
 
   }
 
   render() {
+
     return (
       <div className="ask-tom-home">
         <h1>Ask Tom Home Page</h1>
         <Route exact path="/survey" component={SurveyForm}/>
-        <Route exact path="/signup" component={Signup}/>
-        <Route exact path="/login" component={Login}/>
+        <Route exact path="/signup" render={() => <Signup submitHandler={this.props.signupSubmitHandler} />} />
+        <Route exact path="/login" render={() => <Login loginSubmitHandler={this.props.loginSubmitHandler} />} />
         <Route exact path="/ideas" component={IdeaList}/>
         <Filter changeFilterTerm={this.changeFilterTerm} clickGenerateIdea={this.clickGenerateIdea}/>
         <IdeaCard newIdea={this.state.newIdea}/>

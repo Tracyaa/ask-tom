@@ -15,96 +15,68 @@ import {
 } from 'react-router'
 
 class App extends Component {
+
   state = {
-    user: {},
-
+    currentUser: {}
   }
 
-
-  componentDidMount() {
-    if (localStorage.getItem('token')) {
-      fetch("http://localhost:3000/api/v1/current_user", {
-          headers: {
-            'Content-Type': 'application/json',
-            'Accept': 'application/json',
-            'Authorization': localStorage.getItem('token')
-          }
-        })
-        .then(res => res.json())
-        .then(userJSON => {
-          this.setState({
-            user: userJSON.user
-          }, () => {
-            this.props.history.push('/rappers')
-          })
-        })
-    }
-  }
-
-
-  signupSubmitHandler = userInfo => {
-    fetch("http://localhost:3000/api/v1/users", {
-        method: "POST",
-        headers: {
-          "content-type": "application/json",
-          accepts: "application/json"
-        },
-        body: JSON.stringify({
-          user: userInfo
-        })
-      })
+  signupSubmitHandler = (e, userInfo) => {
+    e.preventDefault()
+    fetch("http://dry-shelf-10302.herokuapp.com/api/v1/users", {
+      method: "POST",
+      headers: {
+        'Content-Type': "application/json",
+        'Accept': "application/json"
+      },
+      body: JSON.stringify({ user: userInfo })
+    })
       .then(resp => resp.json())
       .then(userData => {
-        this.setState({
-          user: userData.user
-        }, () => {
+        this.setState({ currentUser: userData.user }, () => {
           console.log("This is what I'm getting after signing up: ", userData)
           localStorage.setItem("token", userData.jwt);
-          this.props.history.push("/rappers");
+          // this.props.history.push("/users");
         });
       });
   };
-  loginSubmitHandler = userInfo => {
-    fetch("http://localhost:3000/api/v1/login", {
-        method: "POST",
-        headers: {
-          "content-type": "application/json",
-          accepts: "application/json"
-        },
-        body: JSON.stringify({
-          user: userInfo
-        })
-      })
+
+  loginSubmitHandler = (e, userInfo)=> {
+    e.preventDefault()
+    fetch("http://dry-shelf-10302.herokuapp.com/api/v1/login", {
+      method: "POST",
+      headers: {
+        "content-type": "application/json",
+        accepts: "application/json"
+      },
+      body: JSON.stringify({ user: userInfo })
+    })
       .then(resp => resp.json())
       .then(userData => {
-        localStorage.setItem('token', userData.jwt)
-        this.setState({
-            user: userData.user
-          },
-          () => this.props.history.push("/rappers")
-        )
+        if (userData.jwt) {
+          localStorage.setItem('token', userData.jwt)
+          this.setState({
+            currentUser: userData.user
+          }, () => console.log(this.state.currentUser))
+        }
+
       });
   };
 
   handleLogout = () => {
     this.setState({
-      user: {}
-    })
+      currentUser: {}
+    }, () => console.log(this.state.currentUser))
     localStorage.removeItem("token");
-    this.props.history.push("/signup");
+    // this.props.history.push("/signup");
   }
-
-
-
-
 
 
   render() {
 
     return (
       <div className="Ask-Tom center">
-        <Navbar />
-        <Home />
+        <Navbar handleLogout={this.handleLogout}/>
+        <Home signupSubmitHandler={this.signupSubmitHandler} loginSubmitHandler={this.loginSubmitHandler}/>
       </div>
     );
   }
