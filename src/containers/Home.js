@@ -25,7 +25,7 @@ class Home extends Component {
     tools: []
   }
   componentDidMount() {
-    adapter.getKey()
+    adapter.getKeyword()
       .then(this.setKeywordStateFromDataBase)
   }
 

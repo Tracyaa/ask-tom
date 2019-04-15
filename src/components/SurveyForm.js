@@ -1,5 +1,7 @@
-import React, { Component } from 'react';
-import keywordAdapter from '../adapters/keywordAdapter'
+import React, {
+  Component
+} from 'react';
+import adapter from '../adapters/adapter'
 
 class SurveyForm extends Component {
 
@@ -11,11 +13,13 @@ class SurveyForm extends Component {
   }
 
   componentDidMount = () => {
-    keywordAdapter.getKeywords()
-    .then(resp => resp.json())
-    .then(keywords => {
-      this.setState({keywords: keywords[0]})
-    })
+    adapter.getKeywords()
+      .then(resp => resp.json())
+      .then(keywords => {
+        this.setState({
+          keywords: keywords[0]
+        })
+      })
   }
 
   changeSurveyState = (e) => {
@@ -31,7 +35,7 @@ class SurveyForm extends Component {
     const newKeyword_type = [...this.state.keywords.keyword_type, keywordObj.keyword_type]
     const newPurpose = [...this.state.keywords.purpose, keywordObj.purpose]
     // debugger
-    // keywordAdapter.patchKeyword(newSubject, newKeyword_type, newPurpose)
+    // adapter.patchKeyword(newSubject, newKeyword_type, newPurpose)
   }
 
 

@@ -1,5 +1,7 @@
-import React, { Component } from 'react';
-import ideaAdapter from '../adapters/ideaAdapter';
+import React, {
+  Component
+} from 'react';
+import adapter from '../adapters/adapter';
 import IdeaCard from '../components/IdeaCard'
 
 
@@ -10,11 +12,13 @@ class IdeaList extends Component {
   }
 
   componentDidMount() {
-    ideaAdapter.getIdeas()
-    .then(resp => resp.json())
-    .then(ideas => {
-      this.setState({ideas})
-    })
+    adapter.getIdea()
+      .then(resp => resp.json())
+      .then(ideas => {
+        this.setState({
+          ideas
+        })
+      })
   }
 
   updateIdeaList = () => {
