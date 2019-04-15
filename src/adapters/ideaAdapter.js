@@ -8,7 +8,7 @@ const ideaAdapter = {
       'Content-Type': 'application/json',
       'Accept': 'application/json'
     },
-    body: JSON.stringify({ideaObj})
+    body: JSON.stringify(ideaObj)
   })
   // patchIdea: (IdeaId, category) => fetch(`http://localhost:3001/ideas/${id}`, {
   //   method: 'PATCH',
