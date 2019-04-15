@@ -13,24 +13,35 @@ const postOptions = (obj) => {
   }
 }
 
-const patchOptions = {
-  method: 'PATCH',
-  headers: {
-    'Content-Type': 'application/json',
-    'Accept': 'application/json'
-  },
-  body: JSON.stringify({
-    subject: newSubject,
-    keyword_type: newKeyword_type,
-    purpose: newPurpose
-  })
-}
+// const patchOptions = (newSubject, newKeyword_type, newPurpose) => {
+//   method: 'PATCH',
+//   headers: {
+//     'Content-Type': 'application/json',
+//     'Accept': 'application/json'
+//   },
+//   body: JSON.stringify({
+//     subject: newSubject,
+//     keyword_type: newKeyword_type,
+//     purpose: newPurpose
+//   })
+// }
 
 
 const adapter = {
   getTool: () => fetch(TOOL_BASE_URL).then(res => res.json()),
   getKeyword: () => fetch(KEYWORD_BASE_URL).then(res => res.json()),
-  patchKeyword: (newSubject, newKeyword_type, newPurpose) => fetch(KEYWORD_BASE_URL, patchOptions)
+  patchKeyword: (newSubject, newKeyword_type, newPurpose) => fetch(KEYWORD_BASE_URL, {
+    method: 'PATCH',
+    headers: {
+      'Content-Type': 'application/json',
+      'Accept': 'application/json'
+    },
+    body: JSON.stringify({
+      subject: newSubject,
+      keyword_type: newKeyword_type,
+      purpose: newPurpose
+    })
+  }),
   getIdea: () => fetch(IDEA_BASE_URL),
   postIdea: (obj) => fetch(IDEA_BASE_URL, postOptions(obj)).then(res => res.json())
 }

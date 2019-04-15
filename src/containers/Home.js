@@ -32,7 +32,7 @@ class Home extends Component {
   setKeywordStateFromDataBase = (keywords) => {
     this.setState({
       keywords
-    }, () => console.log(this.state.keywords))
+    })
   }
 
   setToolsState = (tools) => {

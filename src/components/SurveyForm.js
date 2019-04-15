@@ -13,11 +13,10 @@ class SurveyForm extends Component {
   }
 
   componentDidMount = () => {
-    adapter.getKeywords()
-      .then(resp => resp.json())
+    adapter.getKeyword()
       .then(keywords => {
         this.setState({
-          keywords: keywords[0]
+          keywords: keywords
         })
       })
   }
@@ -35,12 +34,13 @@ class SurveyForm extends Component {
     const newKeyword_type = [...this.state.keywords.keyword_type, keywordObj.keyword_type]
     const newPurpose = [...this.state.keywords.purpose, keywordObj.purpose]
     // debugger
-    // adapter.patchKeyword(newSubject, newKeyword_type, newPurpose)
+    adapter.patchKeyword(newSubject, newKeyword_type, newPurpose)
+    .then(resp => console.log(resp.json()))
   }
 
 
   render() {
-    console.log(this.state.keywords);
+    // console.log(this.state.keywords);
     return (
       <div className="survey-form">
         <p>
