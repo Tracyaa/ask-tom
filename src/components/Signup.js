@@ -2,11 +2,12 @@ import React from "react";
 
 class Signup extends React.Component {
   state = {
-    username: "",
+    name: "",
     password: ""
   };
 
   changeHandler = e => {
+    console.log(e);
     this.setState({
       [e.target.placeholder]: e.target.value
     });
@@ -14,18 +15,19 @@ class Signup extends React.Component {
 
   submitHandler = e => {
     e.preventDefault();
-    this.props.submitHandler(this.state);
+    this.props.submitHandler(e, this.state);
     this.setState({
-      username: "",
+      name: "",
       password: ""
     });
   };
+
   render() {
     return (
       <form onSubmit={this.submitHandler}>
         <input
           type="text"
-          placeholder="username"
+          placeholder="name"
           value={this.state.username}
           onChange={this.changeHandler}
         />

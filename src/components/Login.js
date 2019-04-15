@@ -2,7 +2,7 @@ import React from "react";
 
 class Login extends React.Component {
   state = {
-    username: "",
+    name: "",
     password: ""
   };
 
@@ -12,21 +12,21 @@ class Login extends React.Component {
     });
   };
 
-  submitHandler = e => {
+  loginSubmitHandler = e => {
     e.preventDefault();
-    this.props.submitHandler(this.state);
+    this.props.loginSubmitHandler(e, this.state);
     this.setState({
-      username: "",
+      name: "",
       password: ""
     });
   };
   render() {
     return (
-      <form onSubmit={this.submitHandler}>
+      <form onSubmit={this.loginSubmitHandler}>
         <input
           type="text"
-          placeholder="username"
-          value={this.state.username}
+          placeholder="name"
+          value={this.state.name}
           onChange={this.changeHandler}
         />
         <input

@@ -36,7 +36,6 @@ class Home extends Component {
   }
 
   setToolsState = (tools) => {
-
     console.log(tools)
     this.setState({
       tools
@@ -119,8 +118,8 @@ class Home extends Component {
       <div className="ask-tom-home">
         <h1>Ask Tom Home Page</h1>
         <Route exact path="/survey" component={SurveyForm}/>
-        <Route exact path="/signup" component={Signup}/>
-        <Route exact path="/login" component={Login}/>
+        <Route exact path="/signup" render={() => <Signup submitHandler={this.props.signupSubmitHandler} />} />
+        <Route exact path="/login" render={() => <Login loginSubmitHandler={this.props.loginSubmitHandler} />} />
         <Route exact path="/ideas" component={IdeaList}/>
         <Filter changeFilterTerm={this.changeFilterTerm} clickGenerateIdea={this.clickGenerateIdea}/>
         <IdeaCard newIdea={this.state.newIdea}/>
