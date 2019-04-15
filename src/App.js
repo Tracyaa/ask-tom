@@ -73,7 +73,7 @@ class App extends Component {
       currentUser: {}
     }, () => console.log(this.state.currentUser))
     localStorage.removeItem("token");
-    // this.props.history.push("/signup");
+    this.props.history.push("/");
   }
 
 
