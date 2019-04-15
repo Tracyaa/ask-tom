@@ -9,19 +9,24 @@ class IdeaList extends Component {
     ideas: []
   }
 
+  componentDidMount() {
+    ideaAdapter.getIdeas()
+    .then(resp => resp.json())
+    .then(ideas => {
+      this.setState({ideas})
+    })
+  }
 
-  // componentDidMount() {
-  //   ideaAdapter.getIdeas()
-  //   .then(resp => resp.json())
-  //   .then(ideas => {
-  //     this.setState({ideas})
-  //   })
-  // }
+  updateIdeaList = () => {
+
+  }
 
   render() {
+    console.log(this.state.ideas)
+    const ideaCards = this.state.ideas.map(idea => <IdeaCard idea={idea}/>)
     return (
       <div className="idea-list">
-
+        {ideaCards}
       </div>
     );
   }

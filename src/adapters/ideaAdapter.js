@@ -1,7 +1,7 @@
-const BASE_URL = "http://localhost:3001/ideas/"
+const BASE_URL = "http://dry-shelf-10302.herokuapp.com/api/v1/ideas"
 
 const ideaAdapter = {
-  getIdeas: () => fetch(BASE_URL).then(resp => resp.json()),
+  getIdeas: () => fetch(BASE_URL),
   postIdea: (ideaObj) => fetch(BASE_URL, {
     method: 'POST',
     headers: {
@@ -10,15 +10,6 @@ const ideaAdapter = {
     },
     body: JSON.stringify(ideaObj)
   })
-  // patchIdea: (IdeaId, category) => fetch(`http://localhost:3001/ideas/${id}`, {
-  //   method: 'PATCH',
-  //   headers: {
-  //     'Content-Type': 'application/json',
-  //     'Accept': 'application/json'
-  //   },
-  //   body: JSON.stringify({
-  //     ??????
-  //   })
 }
 
 export default ideaAdapter;

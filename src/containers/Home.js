@@ -25,21 +25,16 @@ class Home extends Component {
 
   }
 
-
-
   render() {
     return (
       <div className="ask-tom-home">
-
-
-
+        <h1>Ask Tom Home Page</h1>
         <Route exact path="/survey" component={SurveyForm}/>
         <Route exact path="/signup" component={Signup}/>
         <Route exact path="/login" component={Login}/>
-        <h1>Ask Tom Home Page</h1>
+        <Route exact path="/ideas" component={IdeaList}/>
         <Filter changeFilterTerm={this.changeFilterTerm} clickGenerateIdea={this.clickGenerateIdea}/>
         <IdeaCard newIdea={this.state.newIdea}/>
-        <IdeaList filterTerm={this.state.filterTerm}/>
 
       </div>
     );
