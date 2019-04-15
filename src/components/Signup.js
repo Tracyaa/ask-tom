@@ -21,7 +21,7 @@ class Signup extends React.Component {
       password: ""
     });
   };
-  
+
   render() {
     return (
       <form onSubmit={this.submitHandler}>

@@ -23,16 +23,20 @@ class App extends Component {
   signupSubmitHandler = (e, userInfo) => {
     e.preventDefault()
     fetch("http://dry-shelf-10302.herokuapp.com/api/v1/users", {
-      method: "POST",
-      headers: {
-        'Content-Type': "application/json",
-        'Accept': "application/json"
-      },
-      body: JSON.stringify({ user: userInfo })
-    })
+        method: "POST",
+        headers: {
+          'Content-Type': "application/json",
+          'Accept': "application/json"
+        },
+        body: JSON.stringify({
+          user: userInfo
+        })
+      })
       .then(resp => resp.json())
       .then(userData => {
-        this.setState({ currentUser: userData.user }, () => {
+        this.setState({
+          currentUser: userData.user
+        }, () => {
           console.log("This is what I'm getting after signing up: ", userData)
           localStorage.setItem("token", userData.jwt);
           // this.props.history.push("/users");
@@ -40,16 +44,18 @@ class App extends Component {
       });
   };
 
-  loginSubmitHandler = (e, userInfo)=> {
+  loginSubmitHandler = (e, userInfo) => {
     e.preventDefault()
     fetch("http://dry-shelf-10302.herokuapp.com/api/v1/login", {
-      method: "POST",
-      headers: {
-        "content-type": "application/json",
-        accepts: "application/json"
-      },
-      body: JSON.stringify({ user: userInfo })
-    })
+        method: "POST",
+        headers: {
+          "content-type": "application/json",
+          accepts: "application/json"
+        },
+        body: JSON.stringify({
+          user: userInfo
+        })
+      })
       .then(resp => resp.json())
       .then(userData => {
         if (userData.jwt) {
@@ -67,7 +73,7 @@ class App extends Component {
       currentUser: {}
     }, () => console.log(this.state.currentUser))
     localStorage.removeItem("token");
-    // this.props.history.push("/signup");
+    this.props.history.push("/");
   }
 
 
