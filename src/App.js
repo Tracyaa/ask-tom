@@ -20,16 +20,16 @@ class App extends Component {
         'Authorization': localStorage.getItem('token')
       }
     })
-    .then( res => res.json())
-    .then(userJSON => {
-      this.setState({
-        user: userJSON.user
-      }, () => {
-        this.props.history.push('/rappers')
+      .then( res => res.json())
+      .then(userJSON => {
+        this.setState({
+          user: userJSON.user
+        }, () => {
+          this.props.history.push('/rappers')
+        })
       })
-    })
+    }
   }
-}
 
   signupSubmitHandler = userInfo => {
     fetch("http://localhost:3000/api/v1/users", {
@@ -48,7 +48,7 @@ class App extends Component {
           this.props.history.push("/rappers");
         });
       });
-  };
+    };
   loginSubmitHandler = userInfo => {
     fetch("http://localhost:3000/api/v1/login", {
       method: "POST",
@@ -66,7 +66,7 @@ class App extends Component {
           () => this.props.history.push("/rappers")
         )
       });
-  };
+    };
 
   handleLogout = () => {
     this.setState({
