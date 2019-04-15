@@ -75,12 +75,18 @@ class Home extends Component {
     let purpose3 = this.state.keywords.purpose[Math.floor(Math.random() * this.state.keywords.purpose.length)]
 
     if (keyword_type === 'Game' && this.state.filterTerm > 1) {
-      let toolGames = this.state.tools.map(tool => tool.purpose === "games");
-      let toolEtc = this.state.tools.map(tool => tool.purpose != "games");
+      let tempGames = this.state.tools.filter(tool => tool.purpose === "games");
+      let tmpGame = tempGames.map(tool => tool.name)
 
 
-      let toolG2 = toolGames[Math.floor(Math.random() * 2)]
-      let toolOther = toolEtc[Math.floor(Math.random() * 4)]
+      let tempEtc = this.state.tools.filter(tool => tool.purpose != "games");
+      let tmpEtc = tempEtc.map(tool => tool.name)
+
+
+      let toolG2 = tmpGame[Math.floor(Math.random() * 2)]
+      console.log(toolG2);
+      let toolOther = tmpEtc[Math.floor(Math.random() * tmpEtc.length)]
+      console.log(toolOther);
 
       tools = [toolG2, toolOther, tools]
       console.log(tools)
