@@ -172,7 +172,9 @@ a:hover {
 /* //////////// */
 /* STYING FOR IDEA */
 .idea-card {
-  background-color: #ffffff3d;
-  color: #fff;
-  padding: 15px;
+  color: #000;
+  padding: 6px;
+  list-style-type: none;
+  text-align: left;
+  background-color: aliceblue;
 }
