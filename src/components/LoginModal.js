@@ -1,6 +1,8 @@
-import React from "react";
+import React, { Component } from 'react'
+import { Button, Modal } from 'react-bootstrap';
 
-class Login extends React.Component {
+export default class LoginModal extends Component {
+
   state = {
     name: "",
     password: "",
@@ -14,24 +16,32 @@ class Login extends React.Component {
   };
 
   loginSubmitHandler = e => {
-    e.preventDefault();
+    e.preventDefault()
+    this.props.onHide()
     this.props.loginSubmitHandler(e, this.state);
     this.setState({
-      success: "Done!"
+      success: "Done!",
+      name: "",
+      password: ""
     })
   };
+
   render() {
     return (
-
-      <div class="d-md-flex h-md-100 align-items-center">
-        <div class="col-md-6 p-0 bg-blue h-md-100">
-          <div class="text-white d-md-flex align-items-center h-100 p-5 text-center justify-content-center">
-
-
-            <form onSubmit={this.loginSubmitHandler}>
-              <h2 class="form-head">Login</h2>
+      <Modal
+        {...this.props}
+        size="lg"
+        aria-labelledby="contained-modal-title-vcenter"
+        centered
+      >
+        <Modal.Header closeButton>
+          <Modal.Title id="contained-modal-title-vcenter">
+            Login
+          </Modal.Title>
+        </Modal.Header>
+        <Modal.Body>
+          <form onSubmit={this.loginSubmitHandler}>
               <br/>
-              <label for="username">Username</label>
               <input
                 class="form-control"
                 type="text"
@@ -42,7 +52,6 @@ class Login extends React.Component {
               />
             <br/>
             <br/>
-            <label for="pass">Password</label>
               <input
                 class="form-control"
                 type="password"
@@ -55,16 +64,11 @@ class Login extends React.Component {
               <br/>
               <button class="btn btn-primary">Login</button>
             </form>
-          </div>
-        </div>
-        <div class="col-md-6 p-0 bg-white h-md-100 loginarea">
-          <div class="success-text d-md-flex align-items-center h-md-100 p-5 justify-content-center">
-            <p> {this.state.success} </p>
-          </div>
-        </div>
-      </div>
+        </Modal.Body>
+        <Modal.Footer>
+          <Button onClick={this.props.onHide}>Close</Button>
+        </Modal.Footer>
+      </Modal>
     );
   }
 }
-
-export default Login;
