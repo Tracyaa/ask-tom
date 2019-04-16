@@ -1,13 +1,13 @@
 import React, {
   Component
 } from 'react';
-import IdeaList from '../containers/IdeaList'
-import Filter from '../components/Filter'
+// import IdeaList from '../containers/IdeaList'
+// import Filter from '../components/Filter'
 import IdeaCard from '../components/IdeaCard'
-import SurveyForm from '../components/SurveyForm'
-import Navbar from '../components/Navbar';
-import Signup from '../components/Signup';
-import Login from '../components/Login';
+// import SurveyForm from '../components/SurveyForm'
+// import Navbar from '../components/Navbar';
+// import Signup from '../components/Signup';
+// import Login from '../components/Login';
 import adapter from '../adapters/adapter.js'
 
 import {
@@ -85,7 +85,7 @@ class Home extends Component {
       let tmpGame = tempGames.map(tool => tool.name)
 
 
-      let tempEtc = this.state.tools.filter(tool => tool.purpose != "games");
+      let tempEtc = this.state.tools.filter(tool => tool.purpose !== "games");
       let tmpEtc = tempEtc.map(tool => tool.name)
 
 
@@ -130,15 +130,15 @@ class Home extends Component {
   render() {
     return (
       <div className="ask-tom-home">
-        <div class="d-md-flex h-md-100 align-items-center">
-        	<div class="col-md-6 p-0 bg-blue h-md-100">
-        		<div class="text-white d-md-flex align-items-center h-100 p-5 text-center justify-content-center">
+        <div className="d-md-flex h-md-100 align-items-center">
+        	<div className="col-md-6 p-0 bg-blue h-md-100">
+        		<div className="text-white d-md-flex align-items-center h-100 p-5 text-center justify-content-center">
 
 
                  <div className="filter">
-                     <h1 class="title">Ask Tom</h1>
+                     <h1 className="title">Ask Tom</h1>
                    <p>Choose your Mod (ﾉ◕ヮ◕)ﾉ*:･ﾟ✧ </p>
-                   <div class="select-dropdown" >
+                   <div className="select-dropdown" >
                      <select onChange={(e) => this.changeFilterTerm(e.target.value)} >
                        <option name="mod" value="1">Mod 1</option>
                        <option name="mod" value="2">Mod 2</option>
@@ -149,7 +149,7 @@ class Home extends Component {
                    </div>
                      <br/>
                      <br/>
-                   <button class="btn btn-primary" onClick={() => this.clickGenerateIdea()} type="submit" name="Submit">Generate an Idea</button>
+                   <button className="btn btn-primary" onClick={() => this.clickGenerateIdea()} type="submit" name="Submit">Generate an Idea</button>
 
 
                  </div>
@@ -160,8 +160,8 @@ class Home extends Component {
         		</div>
 
         	</div>
-        	<div class="col-md-6 p-0 bg-white h-md-100 loginarea">
-        		<div class="ideas d-md-flex align-items-center h-md-100 p-5 justify-content-center">
+        	<div className="col-md-6 p-0 bg-white h-md-100 loginarea">
+        		<div className="ideas d-md-flex align-items-center h-md-100 p-5 justify-content-center">
 
         		<IdeaCard newIdea={this.state.newIdea} mod={this.state.filterTerm}/>
 
