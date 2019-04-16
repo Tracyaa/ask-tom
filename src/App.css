@@ -178,3 +178,14 @@ a:hover {
   text-align: left;
   background-color: aliceblue;
 }
+
+.idea-c {
+  overflow: scroll;
+}
+
+.idea-ul {
+  margin-top: 0;
+  margin-bottom: 1rem;
+  top: 25%;
+  position: relative;
+}

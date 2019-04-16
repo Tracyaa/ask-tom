@@ -60,8 +60,19 @@ class Home extends Component {
   clickGenerateIdea = () => {
     let sents;
     let keyword_type = this.state.keywords.keyword_type[Math.floor(Math.random() * this.state.keywords.keyword_type.length)]
-    let toolArray = this.state.tools.map(tool => tool.name);
+    let toolArray;
+    if (this.state.filterTerm === 1) {
+      console.log(this.state.tools)
+      toolArray = this.state.tools.map(tool => tool.name);
+    } else {
+      console.log(this.state.tools)
+      toolArray = this.state.tools.map(tool => tool.name);
+    }
     let tools = toolArray[Math.floor(Math.random() * 2)]
+
+
+
+
     let subject = this.state.keywords.subject[Math.floor(Math.random() * this.state.keywords.subject.length)]
     let purpose = this.state.keywords.purpose[Math.floor(Math.random() * this.state.keywords.purpose.length)]
     let purpose2 = this.state.keywords.purpose[Math.floor(Math.random() * this.state.keywords.purpose.length)]

@@ -14,7 +14,7 @@ class IdeaCard extends Component {
 
     adapter.postIdea(idea)
       .then(keywords => {
-        alert("Thanks you!")
+        alert("Thank you!")
       })
 
   }
