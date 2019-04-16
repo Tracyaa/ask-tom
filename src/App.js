@@ -20,7 +20,7 @@ class App extends Component {
   componentDidMount() {
     let token = localStorage.getItem('token')
     if(token) {
-      fetch('http://localhost:3000/api/v1/current_user', { headers: { Authorization: `Bearer ${token}` } })
+      fetch('http://dry-shelf-10302.herokuapp.com/api/v1/current_user', { headers: { Authorization: `Bearer ${token}` } })
       .then( r => r.json() )
       .then( data => this.setState({ currentUser: data }))
       this.props.history.push('/')
@@ -31,7 +31,7 @@ class App extends Component {
 
   signupSubmitHandler = (e, userInfo) => {
     e.preventDefault()
-    fetch("http://localhost:3000/api/v1/users", {
+    fetch("http://dry-shelf-10302.herokuapp.com/api/v1/users", {
         method: "POST",
         headers: {
           'Content-Type': "application/json",
@@ -57,7 +57,7 @@ class App extends Component {
   loginSubmitHandler = (e, userInfo) => {
     e.preventDefault()
     console.log(userInfo)
-    fetch("http://localhost:3000/api/v1/login", {
+    fetch("http://dry-shelf-10302.herokuapp.com/api/v1/login", {
         method: "POST",
         headers: {
           "content-type": "application/json",
