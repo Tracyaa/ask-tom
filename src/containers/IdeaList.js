@@ -26,7 +26,6 @@ class IdeaList extends Component {
   }
 
   render() {
-    console.log(this.state.ideas)
     const ideaCards = this.state.ideas.map(idea => <IdeaCard idea={idea}/>)
     return (
       <div className="idea-list">

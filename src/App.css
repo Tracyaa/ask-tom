@@ -1,41 +1,166 @@
-.App {
-  text-align: center;
+/* NAVBAR CSS */
+.navbar-nav {
+  flex-direction: row;
 }
 
-.App-logo {
-  animation: App-logo-spin infinite 20s linear;
-  height: 40vmin;
-  pointer-events: none;
+.navbar, body {
+  background-color: #00aced;
 }
 
-.App-header {
-  background-color: #31F4AF;
-  min-height: 100vh;
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  justify-content: center;
-  font-size: calc(10px + 2vmin);
+.navbar {
+  padding: 0px;
+}
+
+.lk {
+  margin-top: 15px;
+  margin-bottom: 1rem;
+}
+
+a {
+  color: #ffffff;
+  text-decoration: none;
+  background-color: transparent;
+  padding: 10px;
+}
+
+/* /////////// */
+/* RESPONSIVE - MAKES MAIN CONTAINERS STACK VERTICALLY INSTEAD OF HORIZANTALLY */
+@media (min-width: 768px) {
+  .h-md-100 {
+    height: 100vh;
+  }
+}
+
+/* /////////// */
+.btn-round {
+  border-radius: 30px;
+}
+
+/* TEXT CSS */
+.text-cyan {
+  color: #35bdff;
+}
+
+.text-white {
+  color: #fff !important;
+  background-color: white;
+}
+
+.success-text {
+  font-weight: 700;
+  background-color: #00aced;
+  font-size: xx-large;
+}
+
+.survey-form {
+  color: black;
+  font-weight: 700;
+  font-size: xx-large;
+}
+
+/* BACKGROUND COLORS */
+.bg-blue, .ideas {
+  background: #00aced;
+}
+
+/* ////////////// */
+/* MAIN BUTTON STYLING */
+.btn-primary {
+  color: #fff;
+  background-color: #00aced;
+  border-color: #00aced;
+}
+
+.btn-primary:hover {
+  color: #fff;
+  background-color: #00acedcc;
+  border-color: #00acedcc;
+}
+
+a:hover {
+  background-color: #66666630;
+  text-decoration: none;
   color: white;
 }
 
-.App-link {
-  color: #61dafb;
+/* ASK TOM TITLE */
+.title {
+  text-decoration: none;
+  -webkit-transform: perspective(2.5em) rotateX(15deg) scaleY(0.8);
+  -moz-transform: perspective(2.5em) rotateX(15deg) scaleY(0.8);
+  -ms-transform: perspective(2.5em) rotateX(15deg) scaleY(0.8);
+  -o-transform: perspective(2.5em) rotateX(15deg) scaleY(0.8);
+  transform: perspective(2.5em) rotateX(15deg) scaleY(0.8);
+  -webkit-transition: all 0.5s;
+  -moz-transition: all 0.5s;
+  transition: all 0.5s;
+  display: inline-block;
+  text-align: center;
+  text-transform: uppercase;
+  font-size: 40px;
+  font-weight: 700;
+  line-height: 0.8;
+  color: #00aced;
+  text-shadow: 0 -1px 15px rgba(255, 255, 255, 0.9), 0 1px 0 #00aced, 0 3px 0 #00aced, 0 5px 0 #00aced, 0 7px 0 #00aced, 0 9px 0 #00aced, 0 6px 50px rgba(255, 255, 255, 0.8);
 }
 
-@keyframes App-logo-spin {
-  from {
-    transform: rotate(0deg);
-  }
-  to {
-    transform: rotate(360deg);
-  }
+.title:first-line {
+  font-size: 0.8em;
 }
-.center {
-  background-color: #4BFDBE;
-  color: #1C1CB4;
-  margin: auto;
-  width: 50%;
-  text-align: center;
-  padding: 10px;
+
+.title:hover {
+  -webkit-transform: perspective(8em) rotateX(11deg) scale(1.2);
+  -moz-transform: perspective(8em) rotateX(11deg) scale(1.2);
+  -ms-transform: perspective(8em) rotateX(11deg) scale(1.2);
+  -o-transform: perspective(8em) rotateX(11deg) scale(1.2);
+  transform: perspective(8em) rotateX(11deg) scale(1.2);
+  text-shadow: 0 -1px 15px rgba(255, 255, 255, 0.9), 0 1px 0 #00aced, 0 3px 0 #00aced, 0 5px 0 #00aced, 0 7px 0 #00aced, 0 9px 0 #00aced, 0 6px 50px rgba(255, 255, 255, 0.8);
+}
+
+/* /////////////// */
+/* MAIN DROPDOWN CSS */
+.select-dropdown {
+  position: relative;
+  background-color: #e6e6e6;
+  width: auto;
+  border-radius: 2px;
+}
+
+.select-dropdown select {
+  font-family: "helvetica neue", helvetica;
+  font-size: 1rem;
+  font-weight: 200;
+  max-width: 100%;
+  padding: 8px 24px 8px 10px;
+  border: none;
+  background-color: transparent;
+  -webkit-appearance: none;
+  -moz-appearance: none;
+  appearance: none;
+}
+
+.select-dropdown select:active, .select-dropdown select:focus {
+  outline: none;
+  box-shadow: none;
+}
+
+.select-dropdown:after {
+  content: " ";
+  position: absolute;
+  top: 50%;
+  margin-top: -2px;
+  right: 8px;
+  width: 0;
+  height: 0;
+  border-left: 5px solid transparent;
+  border-right: 5px solid transparent;
+  border-top: 5px solid #aaa;
+}
+
+/* //////////// */
+/* STYING FOR IDEA */
+.idea-card {
+  background-color: #ffffff3d;
+  color: #fff;
+  padding: 15px;
 }
