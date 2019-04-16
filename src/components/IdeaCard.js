@@ -22,9 +22,12 @@ class IdeaCard extends Component {
   render() {
     if (this.props.idea) {
       return (
-        <div className="idea-card">
-          <h2>{this.props.idea.idea_type}</h2>
-        </div>
+        <div>
+        <li className="idea-card">
+          {this.props.idea.idea_type}
+        </li>
+      <br/>
+      </div>
       );
     } else {
       return (

@@ -77,6 +77,18 @@ a {
   border-color: #00acedcc;
 }
 
+.btn-white:hover {
+  color: #00acedcc;
+  background-color: #ededed;
+  border-color: #ededed;
+}
+
+.btn-white {
+  color: #00acedcc;
+  background-color: #fff;
+  border-color: #fff;
+}
+
 a:hover {
   background-color: #66666630;
   text-decoration: none;
@@ -160,7 +172,9 @@ a:hover {
 /* //////////// */
 /* STYING FOR IDEA */
 .idea-card {
-  background-color: #ffffff3d;
-  color: #fff;
-  padding: 15px;
+  color: #000;
+  padding: 6px;
+  list-style-type: none;
+  text-align: left;
+  background-color: aliceblue;
 }
