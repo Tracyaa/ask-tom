@@ -28,7 +28,7 @@ class App extends Component {
       console.log(token)
       fetch('http://dry-shelf-10302.herokuapp.com/api/v1/current_user', { headers: { Authorization: `Bearer ${token}` } })
       .then( r => r.json() )
-      .then( data => this.setState({ currentUser: data }, () => console.log(data)))
+      .then( data => this.setState({ currentUser: data }))
       this.props.history.push('/')
     } else {
       this.props.history.push('/')
@@ -49,18 +49,19 @@ class App extends Component {
       })
       .then(resp => resp.json())
       .then(userData => {
-        localStorage.setItem("token", userData.jwt);
-        this.setState({
-          currentUser: userData.user
-        }, () => {
-          console.log("This is what I'm getting after signing up: ", userData)
-          // this.props.history.push("/users");
-        });
+          localStorage.setItem("token", userData.jwt);
+          this.setState({
+            currentUser: userData.user
+          }, () => {
+            console.log("This is what I'm getting after signing up: ", userData)
+            // this.props.history.push("/users");
+          });
       });
   };
 
   loginSubmitHandler = (e, userInfo) => {
     e.preventDefault()
+    console.log(userInfo)
     fetch("http://dry-shelf-10302.herokuapp.com/api/v1/login", {
         method: "POST",
         headers: {
@@ -74,12 +75,12 @@ class App extends Component {
       .then(resp => resp.json())
       .then(userData => {
         if (userData.jwt) {
+          console.log('userData', userData)
           localStorage.setItem('token', userData.jwt)
           this.setState({
-            currentUser: userData.user
-          })
+            currentUser: userData
+          }, () => console.log('app user state', this.state.currentUser.user))
         }
-
       });
   };
 
@@ -93,11 +94,15 @@ class App extends Component {
 
 
   render() {
-    console.log(this.state.currentUser.user)
     return (
       <div className="Ask-Tom center">
         <Navbar currentUser={this.state.currentUser} handleLogout={this.handleLogout}/>
-        <Home signupSubmitHandler={this.signupSubmitHandler} loginSubmitHandler={this.loginSubmitHandler}/>
+        {/*<Home signupSubmitHandler={this.signupSubmitHandler} loginSubmitHandler={this.loginSubmitHandler}/>*/}
+        <Route exact path="/survey" component={SurveyForm}/>
+        <Route exact path="/signup" render={() => <Signup submitHandler={this.signupSubmitHandler} />} />
+        <Route exact path="/login" render={() => <Login loginSubmitHandler={this.loginSubmitHandler} />} />
+        <Route exact path="/ideas" component={IdeaList}/>
+        <Route exact path="/" render={() => <Home signupSubmitHandler={this.signupSubmitHandler} loginSubmitHandler={this.loginSubmitHandler}/>}/>
       </div>
     );
   }

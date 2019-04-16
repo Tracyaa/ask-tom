@@ -9,7 +9,7 @@ import {
 
 class Navbar extends Component {
   render() {
-    console.log('props in navbar', this.props.currentUser.user)
+    console.log(this.props.currentUser.user)
     return (
       <nav className="nav-bar">
         <ul>

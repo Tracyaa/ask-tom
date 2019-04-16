@@ -17,11 +17,6 @@ class Login extends React.Component {
     e.preventDefault();
     this.props.loginSubmitHandler(e, this.state);
     this.setState({
-      name: "",
-      password: "",
-
-    });
-    this.setState({
       success: "Done!"
     })
   };
@@ -41,7 +36,7 @@ class Login extends React.Component {
                 class="form-control"
                 type="text"
                 id="username"
-
+                placeholder="name"
                 value={this.state.name}
                 onChange={this.changeHandler}
               />
@@ -52,7 +47,7 @@ class Login extends React.Component {
                 class="form-control"
                 type="password"
                 id="id"
-
+                placeholder="password"
                 value={this.state.password}
                 onChange={this.changeHandler}
               />
@@ -60,22 +55,14 @@ class Login extends React.Component {
               <br/>
               <button class="btn btn-primary">Login</button>
             </form>
-
-
-
           </div>
         </div>
         <div class="col-md-6 p-0 bg-white h-md-100 loginarea">
           <div class="success-text d-md-flex align-items-center h-md-100 p-5 justify-content-center">
             <p> {this.state.success} </p>
-
-
           </div>
         </div>
       </div>
-
-
-
     );
   }
 }

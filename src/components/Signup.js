@@ -7,27 +7,21 @@ class Signup extends React.Component {
   };
 
   changeHandler = e => {
-    console.log(e);
     this.setState({
       [e.target.placeholder]: e.target.value
     });
   };
 
   submitHandler = e => {
+    console.log('WTF', this.state)
     e.preventDefault();
-    this.props.submitHandler(e, this.state);
     this.setState({
-      name: "",
-      password: ""
-    });
+      [e.target.placeholder]: e.target.value
+    }, () => console.log(this.state));
   };
 
   render() {
     return (
-
-
-
-
       <div class = "d-md-flex h-md-100 align-items-center" >
         <div class="col-md-6 p-0 bg-blue h-md-100">
           <div class="text-white d-md-flex align-items-center h-100 p-5 text-center justify-content-center">
@@ -40,8 +34,8 @@ class Signup extends React.Component {
                 class="form-control"
                 type="text"
                 id="username"
-
-                value={this.state.username}
+                placeholder="name"
+                value={this.state.name}
                 onChange={this.changeHandler}
               />
               <br/>
@@ -51,7 +45,7 @@ class Signup extends React.Component {
                 class="form-control"
                 type="text"
                 id="pass"
-
+                placeholder="password"
                 value={this.state.password}
                 onChange={this.changeHandler}
               />
