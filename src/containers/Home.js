@@ -58,6 +58,7 @@ class Home extends Component {
   }
 
   clickGenerateIdea = () => {
+    console.log(this.state)
     let sents;
     let keyword_type = this.state.keywords.keyword_type[Math.floor(Math.random() * this.state.keywords.keyword_type.length)]
     let toolArray = this.state.tools.map(tool => tool.name);

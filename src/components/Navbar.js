@@ -18,7 +18,6 @@ class Navbar extends Component {
 
 
   render() {
-    console.log(this.props)
     let loginModalClose = () => this.setState({
       loginModalShow: false
     });
