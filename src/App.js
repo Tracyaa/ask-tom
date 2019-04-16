@@ -3,7 +3,9 @@ import React, {
 } from 'react';
 // import logo from './logo.svg';
 
-
+import Signup from './/components/Signup';
+import Login from './components/Login';
+import IdeaList from './containers/IdeaList'
 import Navbar from './components/Navbar';
 import Home from './containers/Home';
 import SurveyForm from './components/SurveyForm'
@@ -82,7 +84,13 @@ class App extends Component {
     return (
       <div className="Ask-Tom center">
         <Navbar handleLogout={this.handleLogout}/>
-        <Home signupSubmitHandler={this.signupSubmitHandler} loginSubmitHandler={this.loginSubmitHandler}/>
+
+          <Route exact path="/survey" component={SurveyForm}/>
+          <Route exact path="/signup" render={() => <Signup submitHandler={this.props.signupSubmitHandler} />} />
+          <Route exact path="/login" render={() => <Login loginSubmitHandler={this.props.loginSubmitHandler} />} />
+          <Route exact path="/ideas" component={IdeaList}/>
+          <Route exact path="/" render={() => <Home signupSubmitHandler={this.signupSubmitHandler} loginSubmitHandler={this.loginSubmitHandler}/>}/>
+
       </div>
     );
   }
