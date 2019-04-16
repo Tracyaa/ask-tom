@@ -91,6 +91,18 @@ a {
   border-color: #00acedcc;
 }
 
+.btn-white:hover {
+  color: #00acedcc;
+  background-color: #ededed;
+  border-color: #ededed;
+}
+
+.btn-white {
+  color: #00acedcc;
+  background-color: #fff;
+  border-color: #fff;
+}
+
 a:hover {
   background-color: #66666630;
   text-decoration: none;
