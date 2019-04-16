@@ -13,11 +13,10 @@ class Signup extends React.Component {
   };
 
   submitHandler = e => {
-    console.log('WTF', this.state)
     e.preventDefault();
     this.setState({
       [e.target.placeholder]: e.target.value
-    }, () => console.log(this.state));
+    }, () => this.props.submitHandler(e, this.state));
   };
 
   render() {

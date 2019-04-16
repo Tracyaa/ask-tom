@@ -2,13 +2,8 @@ import React, {
   Component
 } from 'react';
 // import logo from './logo.svg';
-
-import Signup from './/components/Signup';
-import Login from './components/Login';
-import IdeaList from './containers/IdeaList'
 import Navbar from './components/Navbar';
-import Home from './containers/Home';
-import SurveyForm from './components/SurveyForm'
+import RouterContainer from './containers/RouterContainer'
 import './App.css';
 import {
   Route,
@@ -25,7 +20,6 @@ class App extends Component {
   componentDidMount() {
     let token = localStorage.getItem('token')
     if(token) {
-      console.log(token)
       fetch('http://dry-shelf-10302.herokuapp.com/api/v1/current_user', { headers: { Authorization: `Bearer ${token}` } })
       .then( r => r.json() )
       .then( data => this.setState({ currentUser: data }))
@@ -49,9 +43,10 @@ class App extends Component {
       })
       .then(resp => resp.json())
       .then(userData => {
+          console.log(userData)
           localStorage.setItem("token", userData.jwt);
           this.setState({
-            currentUser: userData.user
+            currentUser: userData
           }, () => {
             console.log("This is what I'm getting after signing up: ", userData)
             // this.props.history.push("/users");
@@ -75,7 +70,6 @@ class App extends Component {
       .then(resp => resp.json())
       .then(userData => {
         if (userData.jwt) {
-          console.log('userData', userData)
           localStorage.setItem('token', userData.jwt)
           this.setState({
             currentUser: userData
@@ -96,13 +90,9 @@ class App extends Component {
   render() {
     return (
       <div className="Ask-Tom center">
-        <Navbar currentUser={this.state.currentUser} handleLogout={this.handleLogout}/>
+        <Navbar currentUser={this.state.currentUser} handleLogout={this.handleLogout} loginSubmitHandler={this.loginSubmitHandler} signupSubmitHandler={this.signupSubmitHandler} />
         {/*<Home signupSubmitHandler={this.signupSubmitHandler} loginSubmitHandler={this.loginSubmitHandler}/>*/}
-        <Route exact path="/survey" component={SurveyForm}/>
-        <Route exact path="/signup" render={() => <Signup submitHandler={this.signupSubmitHandler} />} />
-        <Route exact path="/login" render={() => <Login loginSubmitHandler={this.loginSubmitHandler} />} />
-        <Route exact path="/ideas" component={IdeaList}/>
-        <Route exact path="/" render={() => <Home signupSubmitHandler={this.signupSubmitHandler} loginSubmitHandler={this.loginSubmitHandler}/>}/>
+        <RouterContainer />
       </div>
     );
   }
