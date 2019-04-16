@@ -37,12 +37,12 @@ class IdeaList extends Component {
 
           <div class="d-md-flex h-md-100 align-items-center">
           	<div class="col-md-6 p-0 bg-blue h-md-100">
-          		<div class="text-white d-md-flex align-items-center h-100 p-5 text-center justify-content-center">
+          		<div class="text-white d-md-flex align-items-center h-100 p-5 text-center justify-content-center idea-c ">
                 <h1 class="title">All Ideas</h1>
-                <ul>
+                <ul className="idea-ul">
             {ideaCards}
 
-</ul>
+                </ul>
 
           		</div>
 

@@ -202,3 +202,14 @@ a:hover {
 .idea-button:hover {
   color: #4e9eee;
 }
+
+.idea-c {
+  overflow: scroll;
+}
+
+.idea-ul {
+  margin-top: 0;
+  margin-bottom: 1rem;
+  top: 25%;
+  position: relative;
+}
