@@ -9,15 +9,16 @@ import {
 
 class Navbar extends Component {
   render() {
+    console.log('props in navbar', this.props.currentUser.user)
     return (
       <nav className="nav-bar">
         <ul>
-          <Link to="/">Home</Link>	&nbsp;
-          <Link to="/ideas">Ideas</Link> 	&nbsp;
-          <Link to="/survey">Survey</Link> 	&nbsp;
-          <Link to="/signup">Signup</Link> 	&nbsp;
-          <Link to="/login">Login</Link> 	&nbsp;
-          <p onClick={(e) => this.props.handleLogout()}>Logout</p>
+          <Link to="/">Home</Link> 
+          <Link to="/ideas">Ideas</Link>
+          <Link to="/survey">Survey</Link>
+          { !this.props.currentUser.user ? <Link to="/signup">Signup</Link> : null }
+          { !this.props.currentUser.user ? <Link to="/login">Login</Link> : null }
+          { this.props.currentUser.user ? <p onClick={(e) => this.props.handleLogout()}>Logout</p> : null }
         </ul>
       </nav>
     );

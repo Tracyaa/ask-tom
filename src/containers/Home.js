@@ -91,7 +91,7 @@ class Home extends Component {
       sents = [
         `Make a ${subject} CLI trivia using ${tools} for ${purpose}`,
         `a ${subject} CLI game using ${tools} about ${purpose2} for ${purpose}. (That also shouts out Tom)`,
-        `Build a ${subject} CLI about ${purpose} that only's for Flatiron Students! `
+        `Build a ${subject} CLI about ${purpose} that is only for Flatiron Students! `
       ]
 
 
@@ -99,7 +99,7 @@ class Home extends Component {
       sents = [
         `Make a ${subject} ${keyword_type} using ${tools} for ${purpose}`,
         `a ${subject} ${keyword_type} using ${tools} about ${purpose2} for ${purpose}. (That also shouts out Tom)`,
-        `Build a ${subject} ${keyword_type} about ${purpose} that only's for Flatiron Students! `
+        `Build a ${subject} ${keyword_type} about ${purpose} that is only for Flatiron Students! `
       ]
     }
 
