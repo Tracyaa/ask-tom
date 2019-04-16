@@ -51,9 +51,9 @@ class SurveyForm extends Component {
 
 
 
-      <div class="d-md-flex h-md-100 align-items-center">
-      	<div class="col-md-6 p-0 bg-blue h-md-100">
-      		<div class="text-white d-md-flex align-items-center h-100 p-5 text-center justify-content-center">
+      <div className="d-md-flex h-md-100 align-items-center">
+      	<div className="col-md-6 p-0 bg-blue h-md-100">
+      		<div className="text-white d-md-flex align-items-center h-100 p-5 text-center justify-content-center">
 
 
             <div className="survey-form">
@@ -65,7 +65,7 @@ class SurveyForm extends Component {
               <br/>
                 for  <input onChange={(e) => this.changeSurveyState(e)} type="text" name="purpose" value={this.state.purpose} placeholder=" dogs, kids, ...etc. "/>
               <br/>
-              <button  class="btn btn-primary"  type="submit" name="submit"> Submit </button>
+              <button  className="btn btn-primary"  type="submit" name="submit"> Submit </button>
               </form>
               </p>
             </div>
@@ -74,8 +74,8 @@ class SurveyForm extends Component {
 
       		</div>
       	</div>
-      	<div class="col-md-6 p-0 bg-white h-md-100 loginarea">
-      		<div class="success-text d-md-flex align-items-center h-md-100 p-5 justify-content-center">
+      	<div className="col-md-6 p-0 bg-white h-md-100 loginarea">
+      		<div className="success-text d-md-flex align-items-center h-md-100 p-5 justify-content-center">
             <p> {this.state.success} </p>
 
 
