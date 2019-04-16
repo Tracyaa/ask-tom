@@ -218,3 +218,7 @@ ul {
   position: relative;
   list-style-type: none;
 }
+
+.idea-ul li {
+  background-color: #00aced26;
+}
