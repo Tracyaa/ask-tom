@@ -168,6 +168,11 @@ label {
   font-size: xx-large;
 }
 
+.lk {
+  margin-top: 15px;
+  margin-bottom: 1rem;
+}
+
 .btn-primary:hover {
   color: #fff;
   background-color: #00acedcc;

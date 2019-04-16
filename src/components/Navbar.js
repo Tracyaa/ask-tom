@@ -12,13 +12,13 @@ class Navbar extends Component {
     console.log(this.props.currentUser.user)
     return (
       <nav className="nav-bar">
-        <ul>
-          <Link to="/">Home</Link> 
+        <ul className="lk">
+          <Link to="/">Home</Link>
           <Link to="/ideas">Ideas</Link>
           <Link to="/survey">Survey</Link>
           { !this.props.currentUser.user ? <Link to="/signup">Signup</Link> : null }
           { !this.props.currentUser.user ? <Link to="/login">Login</Link> : null }
-          { this.props.currentUser.user ? <p onClick={(e) => this.props.handleLogout()}>Logout</p> : null }
+          { this.props.currentUser.user ? <a onClick={(e) => this.props.handleLogout()}>Logout</a> : null }
         </ul>
       </nav>
     );
