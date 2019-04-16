@@ -90,7 +90,7 @@ class Home extends Component {
     if (keyword_type === 'Blog' && this.state.filterTerm === 1) {
       sents = [
         `Make a ${subject} CLI trivia using ${tools} for ${purpose}`,
-        `a ${subject} CLI game using ${tools} about ${purpose2} for ${purpose}. (That also shouts out Tom)`,
+        `Create a ${subject} CLI game using ${tools} about ${purpose2} for ${purpose}. (That also shouts out Tom)`,
         `Build a ${subject} CLI about ${purpose} that's only for Flatiron Students! `
       ]
 
@@ -98,10 +98,15 @@ class Home extends Component {
     } else {
       sents = [
         `Make a ${subject} ${keyword_type} using ${tools} for ${purpose}`,
+<<<<<<< HEAD
         `a ${subject} ${keyword_type} using ${tools} about ${purpose2} for ${purpose}. (That also shouts out Tom)`,
         `Build a ${subject} ${keyword_type} about ${purpose} that's only for Flatiron Students! `,
         `Make a ${keyword_type} Tom related!`,
         `Develop a ${subject} website about ${purpose} and ${purpose3}`
+=======
+        `Create a ${subject} ${keyword_type} using ${tools} about ${purpose2} for ${purpose}. (That also shouts out Tom)`,
+        `Build a ${subject} ${keyword_type} about ${purpose} that's only for Flatiron Students! `
+>>>>>>> origin/angelo-branch
       ]
     }
 
