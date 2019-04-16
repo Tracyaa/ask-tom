@@ -16,25 +16,30 @@ class IdeaCard extends Component {
       .then(keywords => {
         alert("Thanks you!")
       })
-
   }
+
+
 
   render() {
     if (this.props.idea) {
+
       return (
-        <div className="idea-card">
-          <h2>{this.props.idea.idea_type}</h2>
-        </div>
+        <div>
+        <li className="idea-card" onClick={() => this.props.clickToFavorites(this.props.currentUser.id, this.props.idea.id)}>
+          {this.props.idea.idea_type}
+        </li>
+      <br/>
+      </div>
       );
     } else {
       return (
-        <div class="text-center">
+        <div className="text-center">
         <div className="idea-card">
           <h2>{this.props.newIdea}</h2>
         </div>
         <br/>
         <br/>
-        <button class="btn btn-white" onClick={(e) => this.saveIdea(e)} type="submit" name="Submit">Save Idea</button>
+        <button className="btn btn-white" onClick={(e) => this.saveIdea(e)} type="submit" name="Submit">Save Idea</button>
         </div>
       )
     }

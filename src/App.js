@@ -26,7 +26,7 @@ class App extends Component {
       this.props.history.push('/')
     } else {
       this.props.history.push('/')
-    } 
+    }
   }
 
   signupSubmitHandler = (e, userInfo) => {
@@ -73,7 +73,7 @@ class App extends Component {
           localStorage.setItem('token', userData.jwt)
           this.setState({
             currentUser: userData
-          }, () => console.log('app user state', this.state.currentUser.user))
+          }, () => console.log('app user login', this.state.currentUser.user))
         }
       });
   };
@@ -81,7 +81,7 @@ class App extends Component {
   handleLogout = () => {
     this.setState({
       currentUser: {}
-    }, () => console.log(this.state.currentUser))
+    })
     localStorage.removeItem("token");
     this.props.history.push("/");
   }
@@ -92,7 +92,7 @@ class App extends Component {
       <div className="Ask-Tom center">
         <Navbar currentUser={this.state.currentUser} handleLogout={this.handleLogout} loginSubmitHandler={this.loginSubmitHandler} signupSubmitHandler={this.signupSubmitHandler} />
         {/*<Home signupSubmitHandler={this.signupSubmitHandler} loginSubmitHandler={this.loginSubmitHandler}/>*/}
-        <RouterContainer />
+        <RouterContainer currentUser={this.state.currentUser.user} />
       </div>
     );
   }
