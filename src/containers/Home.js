@@ -9,6 +9,7 @@ import Navbar from '../components/Navbar';
 import Signup from '../components/Signup';
 import Login from '../components/Login';
 import adapter from '../adapters/adapter.js'
+
 import {
   Route,
   Switch,
@@ -98,7 +99,9 @@ class Home extends Component {
       sents = [
         `Make a ${subject} ${keyword_type} using ${tools} for ${purpose}`,
         `a ${subject} ${keyword_type} using ${tools} about ${purpose2} for ${purpose}. (That also shouts out Tom)`,
-        `Build a ${subject} ${keyword_type} about ${purpose} that's only for Flatiron Students! `
+        `Build a ${subject} ${keyword_type} about ${purpose} that's only for Flatiron Students! `,
+        `Make a ${keyword_type} Tom related!`,
+        `Develop a ${subject} website about ${purpose} and ${purpose3}`
       ]
     }
 
@@ -134,11 +137,15 @@ class Home extends Component {
                      <br/>
                      <br/>
                    <button class="btn btn-primary" onClick={() => this.clickGenerateIdea()} type="submit" name="Submit">Generate an Idea</button>
+
+
                  </div>
 
 
 
+
         		</div>
+
         	</div>
         	<div class="col-md-6 p-0 bg-white h-md-100 loginarea">
         		<div class="ideas d-md-flex align-items-center h-md-100 p-5 justify-content-center">
