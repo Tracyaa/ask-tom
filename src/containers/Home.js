@@ -143,7 +143,8 @@ class Home extends Component {
         	<div class="col-md-6 p-0 bg-white h-md-100 loginarea">
         		<div class="ideas d-md-flex align-items-center h-md-100 p-5 justify-content-center">
 
-        		<IdeaCard newIdea={this.state.newIdea}/>
+        		<IdeaCard newIdea={this.state.newIdea} mod={this.state.filterTerm}/>
+
 
         		</div>
         	</div>
