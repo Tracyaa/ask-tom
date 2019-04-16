@@ -34,7 +34,7 @@ class IdeaCard extends Component {
         </div>
         <br/>
         <br/>
-        <button class="btn btn-white" onClick={(e) => this.saveIdea(e)} type="submit" name="Submit">Save Idea</button>
+        <button class="btn btn-white idea-button" onClick={(e) => this.saveIdea(e)} type="submit" name="Submit">Save Idea</button>
         </div>
       )
     }

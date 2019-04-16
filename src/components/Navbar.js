@@ -6,7 +6,6 @@ import {
   Link,
   withRouter
 } from 'react-router-dom'
-import Button from 'react-bootstrap/Button'
 import LoginModal from './LoginModal'
 import SignupModal from './SignupModal'
 
@@ -30,16 +29,16 @@ class Navbar extends Component {
       <React.Fragment>
         <nav className="nav-bar">
           <ul className="lk">
-            <Link to="/">Home</Link>
-            <Link to="/ideas">Ideas</Link>
-            <Link to="/survey">Survey</Link>
-            { !this.props.currentUser.user ? <Button
+            <Link className="header-left" to="/">Home</Link>
+            { this.props.currentUser.user ? <Link className="header-left" to="/ideas">Ideas</Link> : null }
+            { this.props.currentUser.user ? <Link className="header-left" to="/survey">Survey</Link> : null }
+            { !this.props.currentUser.user ? <a className="header-right"
                                               variant="primary"
-                                              onClick={() => this.setState({ signupModalShow: true})} >Sign Up</Button> : null }
-            { !this.props.currentUser.user ? <Button
+                                              onClick={() => this.setState({ signupModalShow: true})} >Sign Up</a> : null }
+            { !this.props.currentUser.user ? <a className="header-right"
                                               variant="primary"
-                                              onClick={() => this.setState({ loginModalShow: true})} >Login</Button> : null }
-            { this.props.currentUser.user ? <a onClick={(e) => this.props.handleLogout()}>Logout</a> : null }
+                                              onClick={() => this.setState({ loginModalShow: true})} >Login</a> : null }
+            { this.props.currentUser.user ? <a className="header-right" onClick={(e) => this.props.handleLogout()}>Logout</a> : null }
           </ul>
         </nav>
         <LoginModal loginSubmitHandler={this.props.loginSubmitHandler} show={this.state.loginModalShow} onHide={loginModalClose} />
