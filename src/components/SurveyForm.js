@@ -18,19 +18,18 @@ class SurveyForm extends Component {
       .then(keywords => {
         this.setState({
           keywords: keywords
-        })
+        }, () => console.log(this.state.keywords))
       })
   }
 
   changeSurveyState = (e) => {
     this.setState({
       [e.target.name]: e.target.value
-    }, console.log(this.state))
+    })
   }
 
   createNewKeywordApi = (e, keywordObj) => {
     e.preventDefault()
-    // console.log(keywordObj);
     const newSubject = [...this.state.keywords.subject, keywordObj.subject]
     const newKeyword_type = [...this.state.keywords.keyword_type, keywordObj.keyword_type]
     const newPurpose = [...this.state.keywords.purpose, keywordObj.purpose]

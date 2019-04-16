@@ -33,13 +33,12 @@ class IdeaList extends Component {
     return (
       <div className="idea-list">
 
-
-          <div className="d-md-flex h-md-100 align-items-center">
-          	<div className="col-md-6 p-0 bg-blue h-md-100">
-          		<div className="text-white d-md-flex align-items-center h-100 p-5 text-center justify-content-center">
-                <h1 className="title">All Ideas</h1>
-                <ul>
-                {ideaCards}
+          <div class="d-md-flex h-md-100 align-items-center">
+          	<div class="col-md-6 p-0 bg-blue h-md-100">
+          		<div class="text-white d-md-flex align-items-center h-100 p-5 text-center justify-content-center idea-c ">
+                <h1 class="title">All Ideas</h1>
+                <ul className="idea-ul">
+                  {ideaCards}
                 </ul>
           		</div>
           	</div>
