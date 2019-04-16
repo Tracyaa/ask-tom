@@ -3,7 +3,9 @@ import React, {
 } from 'react';
 // import logo from './logo.svg';
 
-
+import Signup from './/components/Signup';
+import Login from './components/Login';
+import IdeaList from './containers/IdeaList'
 import Navbar from './components/Navbar';
 import Home from './containers/Home';
 import SurveyForm from './components/SurveyForm'
@@ -86,7 +88,7 @@ class App extends Component {
       currentUser: {}
     }, () => console.log(this.state.currentUser))
     localStorage.removeItem("token");
-    // this.props.history.push("/signup");
+    this.props.history.push("/");
   }
 
 

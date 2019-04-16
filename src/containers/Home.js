@@ -24,6 +24,7 @@ class Home extends Component {
     keywords: [],
     tools: []
   }
+
   componentDidMount() {
     adapter.getKeyword()
       .then(this.setKeywordStateFromDataBase)
@@ -52,35 +53,33 @@ class Home extends Component {
           filterTerm: +mod,
           tools: filteredTools
         }, () => console.log(this.state.tools))
-
-
       })
   }
 
   clickGenerateIdea = () => {
     let sents;
-    // let tools = this.state.tools[Math.floor(Math.random() * this.state.tools.length)]);
-    // let tools = JSON.stringify(this.state.tools.map(tool => tool.name));
     let keyword_type = this.state.keywords.keyword_type[Math.floor(Math.random() * this.state.keywords.keyword_type.length)]
-
     let toolArray = this.state.tools.map(tool => tool.name);
-
-
     let tools = toolArray[Math.floor(Math.random() * 2)]
-
     let subject = this.state.keywords.subject[Math.floor(Math.random() * this.state.keywords.subject.length)]
     let purpose = this.state.keywords.purpose[Math.floor(Math.random() * this.state.keywords.purpose.length)]
-
     let purpose2 = this.state.keywords.purpose[Math.floor(Math.random() * this.state.keywords.purpose.length)]
     let purpose3 = this.state.keywords.purpose[Math.floor(Math.random() * this.state.keywords.purpose.length)]
 
+
     if (keyword_type === 'Game' && this.state.filterTerm > 1) {
-      let toolGames = this.state.tools.map(tool => tool.purpose === "games");
-      let toolEtc = this.state.tools.map(tool => tool.purpose != "games");
+      let tempGames = this.state.tools.filter(tool => tool.purpose === "games");
+      let tmpGame = tempGames.map(tool => tool.name)
 
 
-      let toolG2 = toolGames[Math.floor(Math.random() * 2)]
-      let toolOther = toolEtc[Math.floor(Math.random() * 4)]
+      let tempEtc = this.state.tools.filter(tool => tool.purpose != "games");
+      let tmpEtc = tempEtc.map(tool => tool.name)
+
+
+      let toolG2 = tmpGame[Math.floor(Math.random() * 2)]
+      console.log(toolG2);
+      let toolOther = tmpEtc[Math.floor(Math.random() * tmpEtc.length)]
+      console.log(toolOther);
 
       tools = [toolG2, toolOther, tools]
       console.log(tools)
@@ -91,7 +90,7 @@ class Home extends Component {
       sents = [
         `Make a ${subject} CLI trivia using ${tools} for ${purpose}`,
         `a ${subject} CLI game using ${tools} about ${purpose2} for ${purpose}. (That also shouts out Tom)`,
-        `Build a ${subject} CLI about ${purpose} that is only for Flatiron Students! `
+        `Build a ${subject} CLI about ${purpose} that's only for Flatiron Students! `
       ]
 
 
@@ -99,7 +98,7 @@ class Home extends Component {
       sents = [
         `Make a ${subject} ${keyword_type} using ${tools} for ${purpose}`,
         `a ${subject} ${keyword_type} using ${tools} about ${purpose2} for ${purpose}. (That also shouts out Tom)`,
-        `Build a ${subject} ${keyword_type} about ${purpose} that is only for Flatiron Students! `
+        `Build a ${subject} ${keyword_type} about ${purpose} that's only for Flatiron Students! `
       ]
     }
 
@@ -116,13 +115,49 @@ class Home extends Component {
   render() {
     return (
       <div className="ask-tom-home">
-        <h1>Ask Tom Home Page</h1>
-        <Route exact path="/survey" component={SurveyForm}/>
-        <Route exact path="/signup" render={() => <Signup submitHandler={this.props.signupSubmitHandler} />} />
-        <Route exact path="/login" render={() => <Login loginSubmitHandler={this.props.loginSubmitHandler} />} />
-        <Route exact path="/ideas" component={IdeaList}/>
-        <Filter changeFilterTerm={this.changeFilterTerm} clickGenerateIdea={this.clickGenerateIdea}/>
-        <IdeaCard newIdea={this.state.newIdea}/>
+
+
+
+
+
+
+
+
+      <div class="d-md-flex h-md-100 align-items-center">
+      	<div class="col-md-6 p-0 bg-blue h-md-100">
+      		<div class="text-white d-md-flex align-items-center h-100 p-5 text-center justify-content-center">
+
+
+               <div className="filter">
+                   <h1 class="title">Ask Tom</h1>
+                 <p>Choose your Mod (ﾉ◕ヮ◕)ﾉ*:･ﾟ✧ </p>
+                 <div class="select-dropdown" >
+                   <select onChange={(e) => this.changeFilterTerm(e.target.value)} >
+                     <option name="mod" value="1">Mod 1</option>
+                     <option name="mod" value="2">Mod 2</option>
+                     <option name="mod" value="3">Mod 3</option>
+                     <option name="mod" value="4">Mod 4</option>
+                   </select>
+                 </div>
+                   <br/>
+                   <br/>
+                 <button class="btn btn-primary" onClick={() => this.clickGenerateIdea()} type="submit" name="Submit">Generate an Idea</button>
+               </div>
+
+
+
+      		</div>
+      	</div>
+      	<div class="col-md-6 p-0 bg-white h-md-100 loginarea">
+      		<div class="ideas d-md-flex align-items-center h-md-100 p-5 justify-content-center">
+
+      		<IdeaCard newIdea={this.state.newIdea}/>
+
+      		</div>
+      	</div>
+      </div>
+
+
 
       </div>
     );
