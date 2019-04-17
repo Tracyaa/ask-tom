@@ -96,7 +96,7 @@ class App extends Component {
         <Navbar currentUser={this.state.currentUser} handleLogout={this.handleLogout} loginSubmitHandler={this.loginSubmitHandler} signupSubmitHandler={this.signupSubmitHandler} />
         {/*<Home signupSubmitHandler={this.signupSubmitHandler} loginSubmitHandler={this.loginSubmitHandler}/>*/}
 
-        {this.state.currentUser.user ? <RouterContainer currentUser={this.state.currentUser} /> : <Route exact path="/ask-tom" render={() => <Home signupSubmitHandler={this.props.signupSubmitHandler} loginSubmitHandler={this.props.loginSubmitHandler}/>}/> }  
+        {this.state.currentUser.user ? <RouterContainer currentUser={this.state.currentUser} /> : <Route exact path="/" render={() => <Home signupSubmitHandler={this.props.signupSubmitHandler} loginSubmitHandler={this.props.loginSubmitHandler}/>}/> }  
 
       </div>
     );
