@@ -24,9 +24,9 @@ class App extends Component {
       fetch('https://dry-shelf-10302.herokuapp.com/api/v1/current_user', { headers: { Authorization: `Bearer ${token}` } })
       .then( r => r.json() )
       .then( data => this.setState({ currentUser: data }))
-      this.props.history.push('/')
+      this.props.history.push('/ask-tom')
     } else {
-      this.props.history.push('/')
+      this.props.history.push('/ask-tom')
     }
   }
 
@@ -85,7 +85,7 @@ class App extends Component {
       currentUser: {}
     })
     localStorage.removeItem("token");
-    this.props.history.push("/");
+    this.props.history.push("/ask-tom");
   }
 
 
