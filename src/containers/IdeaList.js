@@ -58,7 +58,7 @@ class IdeaList extends Component {
       return favs.find(fav => fav.idea_id === id_idea)
     })
     .then(fav => {
-      fetch(`http://dry-shelf-10302.herokuapp.com/api/v1/user_ideas/${fav.id}`, {method: 'DELETE',
+      fetch(`https://dry-shelf-10302.herokuapp.com/api/v1/user_ideas/${fav.id}`, {method: 'DELETE',
       headers:{
         'Content-Type': 'application/json',
         'Accept': 'application/json'
