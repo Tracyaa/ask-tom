@@ -5,38 +5,18 @@ import IdeaCard from '../components/IdeaCard'
 
 class FavoriteList extends Component {
 
-  state = {
-    savedIdeas: []
-  }
 
-  componentDidMount() {
-    adapter.getSavedIdeas()
-    .then(resp => resp.json())
-    .then(userIdeas => {
-      this.setState({
-        savedIdeas: userIdeas
-      })
-    })
-  }
-
-  currentUserFavList = () => {
-    let favIdeas = this.state.savedIdeas.filter(idea => idea.user_id === this.props.currentUser.id)
-    let ideaIdArray = favIdeas.map(idea => idea.idea_id)
-    let oh = this.props.ideas.filter(idea => ideaIdArray.includes(idea.id))
-    return oh
-  }
 
   render() {
+    console.log(this.props);
+    const favCards = this.props.favIdeas.map(idea => <IdeaCard clickToFavorites={this.props.removeFromFav} currentUser={this.props.currentUser} key={idea.id} idea={idea} />)
 
-    console.log(this.props.ideas);
-    console.log(this.currentUserFavList())
-    const favCards = this.currentUserFavList().map(idea => <IdeaCard key={idea.id} idea={idea} />)
     return (
 
     	<div className="col-md-6 p-0 bg-white h-md-100 loginarea">
     		<div className="ideas d-md-flex align-items-center h-md-100 p-5 justify-content-center">
           <ul>
-          {favCards}
+            {favCards}
           </ul>
     		</div>
     	</div>

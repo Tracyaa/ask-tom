@@ -49,14 +49,13 @@ class App extends Component {
             currentUser: userData
           }, () => {
             console.log("This is what I'm getting after signing up: ", userData)
-            // this.props.history.push("/users");
           });
       });
   };
 
   loginSubmitHandler = (e, userInfo) => {
     e.preventDefault()
-    console.log(userInfo)
+    console.log('user info is', userInfo)
     fetch("http://dry-shelf-10302.herokuapp.com/api/v1/login", {
         method: "POST",
         headers: {
@@ -69,6 +68,8 @@ class App extends Component {
       })
       .then(resp => resp.json())
       .then(userData => {
+        console.log('this is from the login', userData
+        );
         if (userData.jwt) {
           localStorage.setItem('token', userData.jwt)
           this.setState({
@@ -92,7 +93,7 @@ class App extends Component {
       <div className="Ask-Tom center">
         <Navbar currentUser={this.state.currentUser} handleLogout={this.handleLogout} loginSubmitHandler={this.loginSubmitHandler} signupSubmitHandler={this.signupSubmitHandler} />
         {/*<Home signupSubmitHandler={this.signupSubmitHandler} loginSubmitHandler={this.loginSubmitHandler}/>*/}
-        <RouterContainer currentUser={this.state.currentUser.user} />
+        <RouterContainer currentUser={this.state.currentUser} />
       </div>
     );
   }

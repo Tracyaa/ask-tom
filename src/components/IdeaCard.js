@@ -19,17 +19,19 @@ class IdeaCard extends Component {
   }
 
 
-
   render() {
+
+    // console.log(this.props.removeFromFav);
+
     if (this.props.idea) {
 
       return (
         <div>
-        <li className="idea-card" onClick={() => this.props.clickToFavorites(this.props.currentUser.id, this.props.idea.id)}>
-          {this.props.idea.idea_type}
-        </li>
-      <br/>
-      </div>
+          <li className="idea-card" onClick={() => this.props.clickToFavorites(this.props.currentUser.user.id, this.props.idea.id)}>
+            {this.props.idea.idea_type}
+          </li>
+          <br/>
+        </div>
       );
     } else {
       return (
