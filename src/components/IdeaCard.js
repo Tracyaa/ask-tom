@@ -106,7 +106,7 @@ class IdeaCard extends Component {
       return (
         <div className="text-center">
           <div>
-        <li className="idea-card">{this.props.idea.idea_type}</li>
+        <li className="idea-card" onClick={() => this.props.clickToFavorites(this.props.currentUser.id, this.props.idea.id)}>{this.props.idea.idea_type}</li>
         </div>
 
         </div>
@@ -120,7 +120,7 @@ class IdeaCard extends Component {
         </div>
         <br/>
         <br/>
-        <button className="btn btn-white" onClick={(e) => this.saveIdea(e)} type="submit" name="Submit">Save Idea</button>
+          <button class="btn btn-white idea-button" onClick={(e) => this.saveIdea(e)} type="submit" name="Submit">Save Idea</button>
         </div>
       )
     }

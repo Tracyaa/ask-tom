@@ -59,11 +59,11 @@ class SurveyForm extends Component {
             <div className="survey-form">
               <p>
               <form onSubmit={(e) => this.createNewKeywordApi(e, this.state)}>
-                Create a/an  <input onChange={(e) => this.changeSurveyState(e)} type="text" name="subject" value={this.state.subject} placeholder=" educational, delightful, ...etc. "/>
+                Create a/an  <input onChange={(e) => this.changeSurveyState(e)} className="i-s" type="text" name="subject" value={this.state.subject} placeholder=" educational, delightful, ...etc. "/>
               <br/>
-              <input onChange={(e) => this.changeSurveyState(e)} type="text" name="keyword_type" value={this.state.type} placeholder=" website, game, ...etc. "/>
+              <input onChange={(e) => this.changeSurveyState(e)} className="i-s" type="text" name="keyword_type" value={this.state.type} placeholder=" website, game, ...etc. "/>
               <br/>
-                for  <input onChange={(e) => this.changeSurveyState(e)} type="text" name="purpose" value={this.state.purpose} placeholder=" dogs, kids, ...etc. "/>
+                for  <input onChange={(e) => this.changeSurveyState(e)} className="i-s" type="text" name="purpose" value={this.state.purpose} placeholder=" dogs, kids, ...etc. "/>
               <br/>
               <button  className="btn btn-primary"  type="submit" name="submit"> Submit </button>
               </form>
