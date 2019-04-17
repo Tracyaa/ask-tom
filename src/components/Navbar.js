@@ -28,7 +28,7 @@ class Navbar extends Component {
       <React.Fragment>
         <nav className="nav-bar">
           <ul className="lk">
-            <Link className="header-left" to="/">Home</Link>
+            <Link className="header-left" to="/ask-tom/">Home</Link>
             { this.props.currentUser.user ? <Link className="header-left" to="/ideas">Ideas</Link> : null }
             { this.props.currentUser.user ? <Link className="header-left" to="/survey">Survey</Link> : null }
             { !this.props.currentUser.user ? <Link className="header-right"
