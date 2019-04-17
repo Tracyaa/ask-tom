@@ -28,8 +28,6 @@ class FavoriteList extends Component {
 
   render() {
 
-    console.log(this.props.ideas);
-    console.log(this.currentUserFavList())
     const favCards = this.currentUserFavList().map(idea => <IdeaCard key={idea.id} idea={idea} />)
     return (
 
