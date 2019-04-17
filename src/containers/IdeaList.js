@@ -24,6 +24,7 @@ class IdeaList extends Component {
   }
 
   clickToFavorites = (user_id, idea_id) => {
+
     adapter.postSavedIdea(user_id, idea_id)
   }
 
