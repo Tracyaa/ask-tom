@@ -22,85 +22,95 @@ class IdeaCard extends Component {
 
   render() {
     if (this.props.newIdea === "") {
-      console.log("none")
+
       return (
         <div className="text-center">
           <h2 className="text-white-i">Made with 💙 by </h2>
 
-          <div class="stage">
+          <div className="stage">
 
-            <div class="layer"></div>
-            <div class="layer"></div>
-            <div class="layer"></div>
-            <div class="layer"></div>
-            <div class="layer"></div>
-            <div class="layer"></div>
-            <div class="layer"></div>
-            <div class="layer"></div>
-            <div class="layer"></div>
-            <div class="layer"></div>
-            <div class="layer"></div>
-            <div class="layer"></div>
-            <div class="layer"></div>
-            <div class="layer"></div>
-            <div class="layer"></div>
-            <div class="layer"></div>
-            <div class="layer"></div>
-            <div class="layer"></div>
-            <div class="layer"></div>
-            <div class="layer"></div>
+            <div className="layer"></div>
+            <div className="layer"></div>
+            <div className="layer"></div>
+            <div className="layer"></div>
+            <div className="layer"></div>
+            <div className="layer"></div>
+            <div className="layer"></div>
+            <div className="layer"></div>
+            <div className="layer"></div>
+            <div className="layer"></div>
+            <div className="layer"></div>
+            <div className="layer"></div>
+            <div className="layer"></div>
+            <div className="layer"></div>
+            <div className="layer"></div>
+            <div className="layer"></div>
+            <div className="layer"></div>
+            <div className="layer"></div>
+            <div className="layer"></div>
+            <div className="layer"></div>
 
           </div>
           <br/>
 
-          <div class="stage">
-              <div class="layer-2"></div>
-              <div class="layer-2"></div>
-              <div class="layer-2"></div>
-              <div class="layer-2"></div>
-              <div class="layer-2"></div>
-              <div class="layer-2"></div>
-              <div class="layer-2"></div>
-              <div class="layer-2"></div>
-              <div class="layer-2"></div>
-              <div class="layer-2"></div>
-              <div class="layer-2"></div>
-              <div class="layer-2"></div>
-              <div class="layer-2"></div>
-              <div class="layer-2"></div>
-              <div class="layer-2"></div>
-              <div class="layer-2"></div>
-              <div class="layer-2"></div>
-              <div class="layer-2"></div>
-              <div class="layer-2"></div>
-              <div class="layer-2"></div>
+          <div className="stage">
+              <div className="layer-2"></div>
+              <div className="layer-2"></div>
+              <div className="layer-2"></div>
+              <div className="layer-2"></div>
+              <div className="layer-2"></div>
+              <div className="layer-2"></div>
+              <div className="layer-2"></div>
+              <div className="layer-2"></div>
+              <div className="layer-2"></div>
+              <div className="layer-2"></div>
+              <div className="layer-2"></div>
+              <div className="layer-2"></div>
+              <div className="layer-2"></div>
+              <div className="layer-2"></div>
+              <div className="layer-2"></div>
+              <div className="layer-2"></div>
+              <div className="layer-2"></div>
+              <div className="layer-2"></div>
+              <div className="layer-2"></div>
+              <div className="layer-2"></div>
             </div>
-            <div class="stage">
-                <div class="layer-3"></div>
-                <div class="layer-3"></div>
-                <div class="layer-3"></div>
-                <div class="layer-3"></div>
-                <div class="layer-3"></div>
-                <div class="layer-3"></div>
-                <div class="layer-3"></div>
-                <div class="layer-3"></div>
-                <div class="layer-3"></div>
-                <div class="layer-3"></div>
-                <div class="layer-3"></div>
-                <div class="layer-3"></div>
-                <div class="layer-3"></div>
-                <div class="layer-3"></div>
-                <div class="layer-3"></div>
-                <div class="layer-3"></div>
-                <div class="layer-3"></div>
-                <div class="layer-3"></div>
-                <div class="layer-3"></div>
-                <div class="layer-3"></div>
+            <div className="stage">
+                <div className="layer-3"></div>
+                <div className="layer-3"></div>
+                <div className="layer-3"></div>
+                <div className="layer-3"></div>
+                <div className="layer-3"></div>
+                <div className="layer-3"></div>
+                <div className="layer-3"></div>
+                <div className="layer-3"></div>
+                <div className="layer-3"></div>
+                <div className="layer-3"></div>
+                <div className="layer-3"></div>
+                <div className="layer-3"></div>
+                <div className="layer-3"></div>
+                <div className="layer-3"></div>
+                <div className="layer-3"></div>
+                <div className="layer-3"></div>
+                <div className="layer-3"></div>
+                <div className="layer-3"></div>
+                <div className="layer-3"></div>
+                <div className="layer-3"></div>
               </div>
 
 
         </div>
       );
+    } else if (this.props.idea != null) {
+
+      return (
+        <div className="text-center">
+          <div>
+        <li className="idea-card">{this.props.idea.idea_type}</li>
+        </div>
+
+        </div>
+      )
     } else {
       console.log(this.props.newIdea)
       return (

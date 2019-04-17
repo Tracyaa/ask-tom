@@ -26,10 +26,11 @@ class IdeaList extends Component {
   }
 
 
-
   render() {
 
     const ideaCards = this.state.ideas.map(idea => <IdeaCard clickToFavorites={this.clickToFavorites} currentUser={this.props.currentUser} key={idea.id} idea={idea}/>)
+    console.log(this.state.ideas)
+
     return (
       <div className="idea-list">
 
