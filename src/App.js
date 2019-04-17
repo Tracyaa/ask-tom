@@ -3,6 +3,7 @@ import React, {
 } from 'react';
 // import logo from './logo.svg';
 import Navbar from './components/Navbar';
+import Home from './containers/Home'
 import RouterContainer from './containers/RouterContainer'
 import './App.css';
 import {
@@ -88,11 +89,12 @@ class App extends Component {
 
 
   render() {
+    console.log(this.state.currentUser.user)
     return (
       <div className="Ask-Tom center">
         <Navbar currentUser={this.state.currentUser} handleLogout={this.handleLogout} loginSubmitHandler={this.loginSubmitHandler} signupSubmitHandler={this.signupSubmitHandler} />
         {/*<Home signupSubmitHandler={this.signupSubmitHandler} loginSubmitHandler={this.loginSubmitHandler}/>*/}
-        <RouterContainer currentUser={this.state.currentUser.user} />
+        {this.state.currentUser.user ? <RouterContainer currentUser={this.state.currentUser.user} /> : <Route exact path="/" render={() => <Home signupSubmitHandler={this.props.signupSubmitHandler} loginSubmitHandler={this.props.loginSubmitHandler}/>}/> }  
       </div>
     );
   }

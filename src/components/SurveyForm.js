@@ -18,7 +18,7 @@ class SurveyForm extends Component {
       .then(keywords => {
         this.setState({
           keywords: keywords
-        }, () => console.log(this.state.keywords))
+        })
       })
   }
 
@@ -33,31 +33,32 @@ class SurveyForm extends Component {
     const newSubject = [...this.state.keywords.subject, keywordObj.subject]
     const newKeyword_type = [...this.state.keywords.keyword_type, keywordObj.keyword_type]
     const newPurpose = [...this.state.keywords.purpose, keywordObj.purpose]
-    // debugger
+
     adapter.patchKeyword(newSubject, newKeyword_type, newPurpose)
-      .then(resp => console.log(resp.json()))
-      .then(() => {
-        this.setState({
-          success: 'Done!'
-        })
+      .then(resp => resp.json())
+      .then(keywordsObj => {
+        console.log(keywordsObj)
+        if (keywordsObj.id) {
+          this.setState({
+            success: 'Done!'
+          })
+        } else {
+          this.setState({
+            success: 'Try again! (No swear words or gibberish, must be < 15 characters, and no empty fields)'
+          })
+        }
       })
   }
 
 
   render() {
-    // console.log(this.state.keywords);
     return (
-
-
-
-
       <div className="d-md-flex h-md-100 align-items-center">
       	<div className="col-md-6 p-0 bg-blue h-md-100">
       		<div className="text-white d-md-flex align-items-center h-100 p-5 text-center justify-content-center">
 
 
             <div className="survey-form">
-              <p>
               <form onSubmit={(e) => this.createNewKeywordApi(e, this.state)}>
                 Create a/an  <input onChange={(e) => this.changeSurveyState(e)} type="text" name="subject" value={this.state.subject} placeholder=" educational, delightful, ...etc. "/>
               <br/>
@@ -67,11 +68,7 @@ class SurveyForm extends Component {
               <br/>
               <button  className="btn btn-primary"  type="submit" name="submit"> Submit </button>
               </form>
-              </p>
             </div>
-
-
-
       		</div>
       	</div>
       	<div className="col-md-6 p-0 bg-white h-md-100 loginarea">
