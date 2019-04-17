@@ -21,17 +21,98 @@ class IdeaCard extends Component {
 
 
   render() {
-    if (this.props.idea) {
+    if (this.props.newIdea === "") {
 
       return (
-        <div>
-        <li className="idea-card" onClick={() => this.props.clickToFavorites(this.props.currentUser.id, this.props.idea.id)}>
-          {this.props.idea.idea_type}
-        </li>
-      <br/>
-      </div>
+        <div className="text-center">
+          <h2 className="text-white-i">Made with 💙 by </h2>
+
+          <div className="stage">
+
+            <div className="layer"></div>
+            <div className="layer"></div>
+            <div className="layer"></div>
+            <div className="layer"></div>
+            <div className="layer"></div>
+            <div className="layer"></div>
+            <div className="layer"></div>
+            <div className="layer"></div>
+            <div className="layer"></div>
+            <div className="layer"></div>
+            <div className="layer"></div>
+            <div className="layer"></div>
+            <div className="layer"></div>
+            <div className="layer"></div>
+            <div className="layer"></div>
+            <div className="layer"></div>
+            <div className="layer"></div>
+            <div className="layer"></div>
+            <div className="layer"></div>
+            <div className="layer"></div>
+
+          </div>
+          <br/>
+
+          <div className="stage">
+              <div className="layer-2"></div>
+              <div className="layer-2"></div>
+              <div className="layer-2"></div>
+              <div className="layer-2"></div>
+              <div className="layer-2"></div>
+              <div className="layer-2"></div>
+              <div className="layer-2"></div>
+              <div className="layer-2"></div>
+              <div className="layer-2"></div>
+              <div className="layer-2"></div>
+              <div className="layer-2"></div>
+              <div className="layer-2"></div>
+              <div className="layer-2"></div>
+              <div className="layer-2"></div>
+              <div className="layer-2"></div>
+              <div className="layer-2"></div>
+              <div className="layer-2"></div>
+              <div className="layer-2"></div>
+              <div className="layer-2"></div>
+              <div className="layer-2"></div>
+            </div>
+            <div className="stage">
+                <div className="layer-3"></div>
+                <div className="layer-3"></div>
+                <div className="layer-3"></div>
+                <div className="layer-3"></div>
+                <div className="layer-3"></div>
+                <div className="layer-3"></div>
+                <div className="layer-3"></div>
+                <div className="layer-3"></div>
+                <div className="layer-3"></div>
+                <div className="layer-3"></div>
+                <div className="layer-3"></div>
+                <div className="layer-3"></div>
+                <div className="layer-3"></div>
+                <div className="layer-3"></div>
+                <div className="layer-3"></div>
+                <div className="layer-3"></div>
+                <div className="layer-3"></div>
+                <div className="layer-3"></div>
+                <div className="layer-3"></div>
+                <div className="layer-3"></div>
+              </div>
+
+
+        </div>
       );
+    } else if (this.props.idea != null) {
+
+      return (
+        <div className="text-center">
+          <div>
+        <li className="idea-card" onClick={() => this.props.clickToFavorites(this.props.currentUser.id, this.props.idea.id)}>{this.props.idea.idea_type}</li>
+        </div>
+
+        </div>
+      )
     } else {
+      console.log(this.props.newIdea)
       return (
         <div className="text-center">
         <div className="idea-card">
