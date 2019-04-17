@@ -1,13 +1,7 @@
 import React, {
   Component
 } from 'react';
-// import IdeaList from '../containers/IdeaList'
-// import Filter from '../components/Filter'
 import IdeaCard from '../components/IdeaCard'
-// import SurveyForm from '../components/SurveyForm'
-// import Navbar from '../components/Navbar';
-// import Signup from '../components/Signup';
-// import Login from '../components/Login';
 import adapter from '../adapters/adapter.js'
 
 import {
@@ -71,9 +65,6 @@ class Home extends Component {
     }
     let tools = toolArray[Math.floor(Math.random() * 2)]
 
-
-
-
     let subject = this.state.keywords.subject[Math.floor(Math.random() * this.state.keywords.subject.length)]
     let purpose = this.state.keywords.purpose[Math.floor(Math.random() * this.state.keywords.purpose.length)]
     let purpose2 = this.state.keywords.purpose[Math.floor(Math.random() * this.state.keywords.purpose.length)]
@@ -83,7 +74,6 @@ class Home extends Component {
     if (keyword_type === 'Game' && this.state.filterTerm > 1) {
       let tempGames = this.state.tools.filter(tool => tool.purpose === "games");
       let tmpGame = tempGames.map(tool => tool.name)
-
 
       let tempEtc = this.state.tools.filter(tool => tool.purpose !== "games");
       let tmpEtc = tempEtc.map(tool => tool.name)
@@ -98,14 +88,12 @@ class Home extends Component {
       console.log(tools)
     }
 
-
     if (keyword_type === 'Blog' && this.state.filterTerm === 1) {
       sents = [
         `Make a ${subject} CLI trivia using ${tools} for ${purpose}`,
         `Create a ${subject} CLI game using ${tools} about ${purpose2} for ${purpose}. (That also shouts out Tom)`,
         `Build a ${subject} CLI about ${purpose} that's only for Flatiron Students! `
       ]
-
 
     } else {
       sents = [
