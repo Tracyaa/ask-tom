@@ -21,16 +21,11 @@ class FavoriteList extends Component {
       })
   }
 
-  currentUserFavList = () => {
-    let favIdeas = this.state.savedIdeas.filter(idea => idea.user_id === this.props.currentUser.id)
-    let ideaIdArray = favIdeas.map(idea => idea.idea_id)
-    let oh = this.props.ideas.filter(idea => ideaIdArray.includes(idea.id))
-    return oh
-  }
-
   render() {
+    console.log(this.props);
+    const favCards = this.props.favIdeas.map(idea => <IdeaCard clickToFavorites={this.props.removeFromFav} currentUser={this.props.currentUser} key={idea.id} idea={idea} />)
 
-    const favCards = this.currentUserFavList().map(idea => <IdeaCard key={idea.id} idea={idea} />)
+    // const favCards = this.currentUserFavList().map(idea => <IdeaCard key={idea.id} idea={idea} />)
     return (
 
       <div className="col-md-6 p-0 bg-white h-md-100 loginarea">

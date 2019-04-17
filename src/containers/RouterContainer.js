@@ -12,7 +12,7 @@ export default class RouterContainer extends Component {
   	return (
   	  <React.Fragment>
 	    <Route exact path="/survey" component={SurveyForm}/>
-	    <Route exact path="/ideas" render={() => <IdeaList currentUser={this.props.currentUser}/>} />
+	    <Route exact path="/ideas" render={() => <IdeaList currentUser={this.props.currentUser} />} />
 	    <Route exact path="/" render={() => <Home signupSubmitHandler={this.props.signupSubmitHandler} loginSubmitHandler={this.props.loginSubmitHandler}/>}/>
 	  </React.Fragment>
 	)

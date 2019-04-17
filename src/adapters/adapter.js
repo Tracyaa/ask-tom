@@ -43,6 +43,7 @@ const postUserIdea = (user_id, idea_id) => {
 }
 
 
+
 const adapter = {
   getTool: () => fetch(TOOL_BASE_URL).then(res => res.json()),
   getKeyword: () => fetch(KEYWORD_BASE_URL).then(res => res.json()),
@@ -50,7 +51,7 @@ const adapter = {
   getIdea: () => fetch(IDEA_BASE_URL),
   postIdea: (obj) => fetch(IDEA_BASE_URL, postOptions(obj)).then(res => res.json()),
   getSavedIdeas: () => fetch(SAVED_LIST_BASE_URL),
-  postSavedIdea: (user_id, idea_id) => fetch(SAVED_LIST_BASE_URL, postUserIdea(user_id, idea_id))
+  postSavedIdea: (user_id, idea_id) => fetch(SAVED_LIST_BASE_URL, postUserIdea(user_id, idea_id)),
 }
 
 export default adapter
