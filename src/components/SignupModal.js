@@ -1,30 +1,35 @@
-import React, { Component } from 'react'
-import { Button, Modal } from 'react-bootstrap';
+import React, {
+  Component
+} from 'react'
+import {
+  Button,
+  Modal
+} from 'react-bootstrap';
 
 export default class SignupModal extends Component {
 
-	state = {
-      name: "",
-      password: ""
-  	}
+  state = {
+    name: "",
+    password: ""
+  }
 
-    changeHandler = e => {
-      this.setState({
-        [e.target.placeholder]: e.target.value
-   	  })
-  	}
+  changeHandler = e => {
+    this.setState({
+      [e.target.placeholder]: e.target.value
+    })
+  }
 
-	submitHandler = e => {
-	  e.preventDefault()
-	  this.props.onHide()
-	  this.setState({
-	    [e.target.placeholder]: e.target.value
-	  }, () => this.props.signupSubmitHandler(e, this.state));
-	}
+  submitHandler = e => {
+    e.preventDefault()
+    this.props.onHide()
+    this.setState({
+      [e.target.placeholder]: e.target.value
+    }, () => this.props.signupSubmitHandler(e, this.state));
+  }
 
-	render() {
-	  return (
-	  	<Modal
+  render() {
+    return (
+      <Modal
         {...this.props}
         size="lg"
         aria-labelledby="contained-modal-title-vcenter"
@@ -50,7 +55,7 @@ export default class SignupModal extends Component {
               <br/>
               <input
                 class="form-control"
-                type="text"
+                type="password"
                 id="pass"
                 placeholder="password"
                 value={this.state.password}
@@ -61,10 +66,7 @@ export default class SignupModal extends Component {
               <button class="btn btn-primary">Sign Up</button>
             </form>
         </Modal.Body>
-        <Modal.Footer>
-          <Button onClick={this.props.onHide}>Close</Button>
-        </Modal.Footer>
       </Modal>
-	  )
-	}
+    )
+  }
 }

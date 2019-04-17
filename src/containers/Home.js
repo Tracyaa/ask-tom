@@ -101,7 +101,10 @@ class Home extends Component {
         `A ${subject} ${keyword_type} using ${tools} about ${purpose2} for ${purpose}. (That also shouts out Tom)`,
         `Build a ${subject} ${keyword_type} about ${purpose} that's only for Flatiron Students! `,
         `Make a ${keyword_type} Tom related!`,
-        `Develop a ${subject} website about ${purpose} and ${purpose3}`
+        `Develop a ${subject} website about ${purpose} and ${purpose3}`,
+        `Make a Facebook for ${purpose2}`,
+        `Make a fictional Personal Frontend Developer for ${purpose2}`,
+
       ]
     }
 

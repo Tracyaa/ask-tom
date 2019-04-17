@@ -1,5 +1,10 @@
-import React, { Component } from 'react'
-import { Button, Modal } from 'react-bootstrap';
+import React, {
+  Component
+} from 'react'
+import {
+  Button,
+  Modal
+} from 'react-bootstrap';
 
 export default class LoginModal extends Component {
 
@@ -65,9 +70,7 @@ export default class LoginModal extends Component {
               <button class="btn btn-primary">Login</button>
             </form>
         </Modal.Body>
-        <Modal.Footer>
-          <Button onClick={this.props.onHide}>Close</Button>
-        </Modal.Footer>
+
       </Modal>
     );
   }

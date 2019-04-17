@@ -21,17 +21,88 @@ class IdeaCard extends Component {
 
 
   render() {
-    if (this.props.idea) {
-
+    if (this.props.newIdea === "") {
+      console.log("none")
       return (
-        <div>
-        <li className="idea-card" onClick={() => this.props.clickToFavorites(this.props.currentUser.id, this.props.idea.id)}>
-          {this.props.idea.idea_type}
-        </li>
-      <br/>
-      </div>
+        <div className="text-center">
+          <h2 className="text-white-i">Made with 💙 by </h2>
+
+          <div class="stage">
+
+            <div class="layer"></div>
+            <div class="layer"></div>
+            <div class="layer"></div>
+            <div class="layer"></div>
+            <div class="layer"></div>
+            <div class="layer"></div>
+            <div class="layer"></div>
+            <div class="layer"></div>
+            <div class="layer"></div>
+            <div class="layer"></div>
+            <div class="layer"></div>
+            <div class="layer"></div>
+            <div class="layer"></div>
+            <div class="layer"></div>
+            <div class="layer"></div>
+            <div class="layer"></div>
+            <div class="layer"></div>
+            <div class="layer"></div>
+            <div class="layer"></div>
+            <div class="layer"></div>
+
+          </div>
+          <br/>
+
+          <div class="stage">
+              <div class="layer-2"></div>
+              <div class="layer-2"></div>
+              <div class="layer-2"></div>
+              <div class="layer-2"></div>
+              <div class="layer-2"></div>
+              <div class="layer-2"></div>
+              <div class="layer-2"></div>
+              <div class="layer-2"></div>
+              <div class="layer-2"></div>
+              <div class="layer-2"></div>
+              <div class="layer-2"></div>
+              <div class="layer-2"></div>
+              <div class="layer-2"></div>
+              <div class="layer-2"></div>
+              <div class="layer-2"></div>
+              <div class="layer-2"></div>
+              <div class="layer-2"></div>
+              <div class="layer-2"></div>
+              <div class="layer-2"></div>
+              <div class="layer-2"></div>
+            </div>
+            <div class="stage">
+                <div class="layer-3"></div>
+                <div class="layer-3"></div>
+                <div class="layer-3"></div>
+                <div class="layer-3"></div>
+                <div class="layer-3"></div>
+                <div class="layer-3"></div>
+                <div class="layer-3"></div>
+                <div class="layer-3"></div>
+                <div class="layer-3"></div>
+                <div class="layer-3"></div>
+                <div class="layer-3"></div>
+                <div class="layer-3"></div>
+                <div class="layer-3"></div>
+                <div class="layer-3"></div>
+                <div class="layer-3"></div>
+                <div class="layer-3"></div>
+                <div class="layer-3"></div>
+                <div class="layer-3"></div>
+                <div class="layer-3"></div>
+                <div class="layer-3"></div>
+              </div>
+
+
+        </div>
       );
     } else {
+      console.log(this.props.newIdea)
       return (
         <div className="text-center">
         <div className="idea-card">
