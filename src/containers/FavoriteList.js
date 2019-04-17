@@ -32,8 +32,9 @@ class FavoriteList extends Component {
     return (
 
     	<div className="col-md-6 p-0 bg-white h-md-100 loginarea">
-    		<div className="ideas d-md-flex align-items-center h-md-100 p-5 justify-content-center">
-          <ul>
+    		<div className="ideas d-md-flex align-items-center h-md-100 p-5 justify-content-center idea-c">
+           <h1 className="favorite-title">Saved Ideas</h1>
+          <ul className="favorite-ul">
           {favCards}
           </ul>
     		</div>
