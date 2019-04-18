@@ -1,4 +1,4 @@
-const KEYWORD_BASE_URL = 'https://dry-shelf-10302.herokuapp.com/api/v1/keywords/6'
+const KEYWORD_BASE_URL = 'https://dry-shelf-10302.herokuapp.com/api/v1/keywords/7'
 const TOOL_BASE_URL = 'https://dry-shelf-10302.herokuapp.com/api/v1/tools'
 const IDEA_BASE_URL = 'https://dry-shelf-10302.herokuapp.com/api/v1/ideas'
 const SAVED_LIST_BASE_URL = "https://dry-shelf-10302.herokuapp.com/api/v1/user_ideas"
