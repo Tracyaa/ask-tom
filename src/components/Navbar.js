@@ -29,8 +29,8 @@ class Navbar extends Component {
         <nav className="nav-bar">
           <ul className="lk">
             <Link className="header-left" to="/ask-tom/">Home</Link>
-            { this.props.currentUser.user ? <Link className="header-left" to="/ideas">Ideas</Link> : null }
-            { this.props.currentUser.user ? <Link className="header-left" to="/survey">Survey</Link> : null }
+            { this.props.currentUser.user ? <Link className="header-left" to="/ask-tom/ideas">Ideas</Link> : null }
+            { this.props.currentUser.user ? <Link className="header-left" to="/ask-tom/survey">Survey</Link> : null }
             { !this.props.currentUser.user ? <Link className="header-right"
                                               variant="primary"
                                               onClick={() => this.setState({ signupModalShow: true})} >Sign Up</Link> : null }
