@@ -24,7 +24,7 @@ class IdeaCard extends Component {
     if (this.props.newIdea === "") {
 
       return (
-        <div className="text-center">
+        <div className="text-center stage-container">
           <h2 className="text-white-i">Made with 💙 by </h2>
 
           <div className="stage">

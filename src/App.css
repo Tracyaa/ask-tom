@@ -75,6 +75,13 @@ a {
     letter-spacing: -2px;
     text-shadow: 4px 0 10px rgba(0, 0, 0, 0.13);
   } */
+  input {
+    width: 100% !important;
+  }
+
+  .stage, .stage-container {
+    display: none;
+  }
 }
 
 /* /////////// */
