@@ -44,4 +44,4 @@ Please read [CONTRIBUTING.md](https://gist.github.com/PurpleBooth/b24679402957c6
 
 ## Demo
 
-Here's the link to Ask Tom: https://tracyaa.github.io/ask-tom
+Here's the link to the live site: https://tracyaa.github.io/ask-tom
